@@ -3,8 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sandbox</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Pull the Bows!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background-color: #fdf6f0;
+      background-image:
+        radial-gradient(circle at 20% 20%, #fde8f0 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, #f5e8f8 0%, transparent 50%);
+      font-family: 'Nunito', sans-serif;
+      padding-bottom: 80px;
+    }
+
+    nav {
+      background-color: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(230, 170, 190, 0.4);
+      padding: 16px;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+    nav span {
+      color: #d4a0b0;
+      margin: 0 6px;
+    }
+
+    nav a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #c0607a;
+      text-decoration: none;
+      padding: 4px 6px;
+      border-radius: 4px;
+      transition: color 0.2s, background-color 0.2s;
+    }
+
+    nav a:hover {
+      color: #8b3a52;
+      background-color: rgba(230, 170, 190, 0.25);
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 12px;
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      color: #c0607a;
+      text-shadow: 1px 2px 8px rgba(192,96,122,0.18);
+    }
+
+    .subtitle {
+      color: #b08898;
+      font-weight: 300;
+      margin-top: 8px;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+    }
+
+    .bows-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 60px 70px;
+      padding: 50px 40px 20px;
+    }
+
+    .bow-wrapper {
+      position: relative;
+      user-select: none;
+    }
+
+    .bow-wrapper svg {
+      overflow: visible;
+    }
+
+    .bow-label {
+      position: absolute;
+      bottom: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.72rem;
+      white-space: nowrap;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      opacity: 0.8;
+    }
+
+    .sparkle {
+      position: absolute;
+      font-size: 1.2rem;
+      pointer-events: none;
+      animation: sparkle-pop 0.9s ease-out forwards;
+    }
+
+    @keyframes sparkle-pop {
+      0%   { opacity: 1; transform: translate(0, 0) scale(0.5); }
+      100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(1.3); }
+    }
+  </style>
 </head>
 <body>
 
@@ -20,10 +123,193 @@
     <a href="sandbox.html">Sandbox</a>
   </nav>
 
-  <main>
-    <h1 class="name">Sandbox</h1>
-    <p>Text</p>
-  </main>
+  <header>
+    <h1>pull a bow</h1>
+    <p class="subtitle">drag the ribbon tails downward ✨</p>
+  </header>
 
+  <div class="bows-grid" id="bows-grid"></div>
+
+  <script>
+    const BOW_COLORS = [
+      { main: '#e8a0b4', dark: '#c0607a', light: '#f9dce5' },
+      { main: '#f0b8c8', dark: '#d4849c', light: '#fde8f0' },
+      { main: '#c8a8d8', dark: '#9068a8', light: '#edd8f8' },
+      { main: '#f0c8a0', dark: '#c08858', light: '#faebd7' },
+      { main: '#a8c8e8', dark: '#5880b8', light: '#d8eef8' },
+      { main: '#c8e0a8', dark: '#689048', light: '#e4f0d4' },
+    ];
+
+    const LABELS = ['untie me!', 'pull here~', 'go on...', 'i dare you ✨', 'gently...', 'try me~'];
+
+    const TIED = {
+      loopL: 'M 80,82 C 68,60 22,38 30,76 C 38,114 68,98 80,82 Z',
+      loopR: 'M 80,82 C 92,60 138,38 130,76 C 122,114 92,98 80,82 Z',
+      tailL: 'M 75,88 C 66,114 55,142 48,178',
+      tailR: 'M 85,88 C 94,114 105,142 112,178',
+    };
+    const UNTIED = {
+      loopL: 'M 80,82 C 80,82 80,82 80,82 C 80,82 80,82 80,82 Z',
+      loopR: 'M 80,82 C 80,82 80,82 80,82 C 80,82 80,82 80,82 Z',
+      tailL: 'M 75,88 C 73,130 71,168 69,220',
+      tailR: 'M 85,88 C 87,130 89,168 91,220',
+    };
+
+    function parseNums(d) { return d.match(/-?\d+\.?\d*/g).map(Number); }
+    function buildPath(template, nums) {
+      let i = 0;
+      return template.replace(/-?\d+\.?\d*/g, () => nums[i++].toFixed(1));
+    }
+    function lerp(a, b, t) { return a + (b - a) * t; }
+    function lerpNums(a, b, t) { return a.map((v, i) => lerp(v, b[i], t)); }
+
+    const PARSED = {};
+    for (const key of ['loopL', 'loopR', 'tailL', 'tailR']) {
+      PARSED[key] = { tied: parseNums(TIED[key]), untied: parseNums(UNTIED[key]), tmpl: TIED[key] };
+    }
+
+    function applyProgress(svg, p) {
+      for (const key of ['loopL', 'loopR', 'tailL', 'tailR']) {
+        const el = svg.querySelector('#' + key);
+        if (el) el.setAttribute('d', buildPath(PARSED[key].tmpl, lerpNums(PARSED[key].tied, PARSED[key].untied, p)));
+      }
+      ['stripeL', 'stripeR'].forEach((id, i) => {
+        const el = svg.querySelector('#' + id);
+        const key = i === 0 ? 'tailL' : 'tailR';
+        if (el) el.setAttribute('d', buildPath(PARSED[key].tmpl, lerpNums(PARSED[key].tied, PARSED[key].untied, p)));
+      });
+      const knot = svg.querySelector('#knot');
+      if (knot) {
+        const s = 1 - p;
+        knot.setAttribute('transform', `translate(80,82) scale(${s}) translate(-80,-82)`);
+        knot.style.opacity = 1 - p;
+      }
+    }
+
+    function spawnSparkles(wrapper) {
+      const emojis = ['✨', '💕', '🎀', '⭐', '💖', '🌸'];
+      for (let i = 0; i < 10; i++) {
+        const span = document.createElement('span');
+        span.className = 'sparkle';
+        span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        const dx = (Math.random() - 0.5) * 140;
+        const dy = -70 - Math.random() * 90;
+        span.style.setProperty('--dx', dx + 'px');
+        span.style.setProperty('--dy', dy + 'px');
+        span.style.left = (30 + Math.random() * 100) + 'px';
+        span.style.top  = (30 + Math.random() * 80)  + 'px';
+        span.style.animationDelay = (Math.random() * 0.3) + 's';
+        wrapper.appendChild(span);
+        setTimeout(() => span.remove(), 1400);
+      }
+    }
+
+    function createBow(color, label, index) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'bow-wrapper';
+
+      const ns = 'http://www.w3.org/2000/svg';
+      const svg = document.createElementNS(ns, 'svg');
+      svg.setAttribute('viewBox', '0 0 160 230');
+      svg.setAttribute('width', '160');
+      svg.setAttribute('height', '230');
+      svg.style.filter = `drop-shadow(0 4px 14px ${color.dark}44)`;
+
+      svg.innerHTML = `
+        <defs>
+          <filter id="sh${index}">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="${color.dark}" flood-opacity="0.25"/>
+          </filter>
+        </defs>
+        <path id="tailL" d="${TIED.tailL}" fill="none" stroke="${color.main}" stroke-width="14" stroke-linecap="round" filter="url(#sh${index})"/>
+        <path id="stripeL" d="${TIED.tailL}" fill="none" stroke="${color.light}" stroke-width="4" stroke-linecap="round"/>
+        <path id="tailR" d="${TIED.tailR}" fill="none" stroke="${color.main}" stroke-width="14" stroke-linecap="round" filter="url(#sh${index})"/>
+        <path id="stripeR" d="${TIED.tailR}" fill="none" stroke="${color.light}" stroke-width="4" stroke-linecap="round"/>
+        <path id="loopL" d="${TIED.loopL}" fill="${color.main}" stroke="${color.dark}" stroke-width="1.5" filter="url(#sh${index})"/>
+        <path id="loopR" d="${TIED.loopR}" fill="${color.main}" stroke="${color.dark}" stroke-width="1.5" filter="url(#sh${index})"/>
+        <path d="M 58,58 C 52,50 48,62 54,66" fill="none" stroke="${color.light}" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+        <path d="M 102,58 C 108,50 112,62 106,66" fill="none" stroke="${color.light}" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+        <ellipse id="knot" cx="80" cy="82" rx="13" ry="10" fill="${color.dark}"/>
+        <ellipse cx="77" cy="80" rx="4" ry="3" fill="${color.light}" opacity="0.5"/>
+        <rect id="handle" x="45" y="105" width="70" height="100" rx="12" fill="transparent" style="cursor:grab"/>
+      `;
+
+      const labelEl = document.createElement('div');
+      labelEl.className = 'bow-label';
+      labelEl.style.color = color.dark;
+      labelEl.textContent = label;
+
+      wrapper.appendChild(svg);
+      wrapper.appendChild(labelEl);
+
+      // Drag logic
+      let progress = 0;
+      let drag = null;
+      let raf = null;
+      let popped = false;
+
+      function animateTo(from, to, duration = 500) {
+        const start = performance.now();
+        cancelAnimationFrame(raf);
+        function tick(now) {
+          const t = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - t, 3);
+          progress = lerp(from, to, eased);
+          applyProgress(svg, progress);
+          if (t < 1) raf = requestAnimationFrame(tick);
+        }
+        raf = requestAnimationFrame(tick);
+      }
+
+      const handle = svg.querySelector('#handle');
+
+      handle.addEventListener('mousedown', e => {
+        e.preventDefault();
+        drag = { startY: e.clientY, startProgress: progress };
+        cancelAnimationFrame(raf);
+      });
+      handle.addEventListener('touchstart', e => {
+        e.preventDefault();
+        drag = { startY: e.touches[0].clientY, startProgress: progress };
+        cancelAnimationFrame(raf);
+      }, { passive: false });
+
+      window.addEventListener('mousemove', e => {
+        if (!drag) return;
+        const dy = e.clientY - drag.startY;
+        progress = Math.max(0, Math.min(1, drag.startProgress + dy / 130));
+        applyProgress(svg, progress);
+        if (progress >= 1 && !popped) { popped = true; spawnSparkles(wrapper); }
+      });
+      window.addEventListener('touchmove', e => {
+        if (!drag) return;
+        const dy = e.touches[0].clientY - drag.startY;
+        progress = Math.max(0, Math.min(1, drag.startProgress + dy / 130));
+        applyProgress(svg, progress);
+        if (progress >= 1 && !popped) { popped = true; spawnSparkles(wrapper); }
+      }, { passive: false });
+      window.addEventListener('mouseup', () => {
+        if (!drag) return;
+        drag = null;
+        if (progress < 0.95) animateTo(progress, 0);
+      });
+      window.addEventListener('touchend', () => {
+        if (!drag) return;
+        drag = null;
+        if (progress < 0.95) animateTo(progress, 0);
+      });
+
+      return wrapper;
+    }
+
+    const grid = document.getElementById('bows-grid');
+    BOW_COLORS.forEach((color, i) => {
+      grid.appendChild(createBow(color, LABELS[i], i));
+    });
+  </script>
 </body>
 </html>
+
+
+<!-- can you create an html page where there are multiple bows made of ribbon that unfold when you pull the bottoms-->
+<!-- here is an html file for my AI generated page, can you add the nav bar to it so i can get to it-->
