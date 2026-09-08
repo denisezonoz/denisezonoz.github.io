@@ -7,7 +7,7 @@
 }
 
 body {
-  background-image: url('bowbackground.png');
+  background-image: url('stripedpink.png');
   background-repeat: repeat;
   background-size: 420px auto;
   background-color: #fdf6f0;
@@ -66,6 +66,77 @@ main p {
   letter-spacing: 0.03em;
 }
 
+/* home page, camera*/
+
+.intro-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.intro-text {
+  text-align: left;
+}
+
+.intro-text h1.name {
+  font-size: 4.2rem;
+}
+
+.intro-text p {
+  font-size: 1.2rem;
+  margin-top: 28px;
+}
+
+.camera-frame {
+  position: relative;
+  width: 460px;
+  aspect-ratio: 578 / 377;
+  flex-shrink: 0;
+}
+
+.camera-photo {
+  position: absolute;
+  left: 7.96%;
+  top: 22.28%;
+  width: 58.82%;
+  height: 66.31%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.camera-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  .intro-row {
+    flex-direction: column-reverse;
+    gap: 24px;
+    padding: 0 20px;
+  }
+  .intro-text {
+    text-align: center;
+  }
+  .intro-text h1.name {
+    font-size: 2.8rem;
+  }
+  .intro-text p {
+    font-size: 1rem;
+  }
+  .camera-frame {
+    width: 280px;
+  }
+}
+
 /* lace box */
 
 .lace-section {
@@ -104,8 +175,35 @@ main p {
   margin-bottom: 12px;
 }
 
-/* RESUME STUFF */
+/* clipboard box */
 
+.clipboard-section {
+  display: flex;
+  justify-content: center;
+  padding: 30px 60px;
+}
+
+.clipboard-box {
+  background-image: url('brownclipboard.png');
+  background-color: transparent;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 560px;
+  padding: 140px 65px 65px 70px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: #5a3a4a;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.clipboard-box h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.4rem;
+  color: #c0607a;
+  margin-top: -20px;
+  margin-bottom: 12px;
+}
 
 .resume-embed {
   margin-top: 20px;
@@ -113,12 +211,12 @@ main p {
   overflow: hidden;
   box-shadow: 0 1px 8px rgba(192, 96, 122, 0.15);
 }
- 
+
 .resume-embed iframe {
   display: block;
   border: none;
 }
- 
+
 .resume-download {
   display: inline-block;
   margin-top: 16px;
@@ -132,11 +230,11 @@ main p {
   letter-spacing: 0.03em;
   transition: background-color 0.2s;
 }
- 
+
 .resume-download:hover {
   background-color: #8b3a52;
 }
- 
+
 @media (max-width: 700px) {
   .lace-section {
     justify-content: center;
@@ -145,32 +243,11 @@ main p {
   .lace-box {
     width: 100%;
   }
-}
-
-/* Clipboard add */
-.clipboard-section {
-  display: flex;
-  justify-content: center;
-  padding: 30px 60px;
-}
- 
-.clipboard-box {
-  background-image: url('brownclipboard.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  width: 650px;
-  padding: 140px 65px 65px 70px;
-  font-family: 'Nunito', sans-serif;
-  font-size: 1rem;
-  color: #5a3a4a;
-  line-height: 1.8;
-  text-align: center;
-}
- 
-.clipboard-box h2 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 2.4rem;
-  color: #c0607a;
-  margin-bottom: 12px;
-  margin-top: -20px;
+  .clipboard-section {
+    padding: 20px;
+  }
+  .clipboard-box {
+    width: 100%;
+    padding: 22% 12% 12% 12%;
+  }
 }
