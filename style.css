@@ -104,6 +104,36 @@ main p {
   margin-bottom: 12px;
 }
 
+.resume-embed {
+  margin-top: 20px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 8px rgba(192, 96, 122, 0.15);
+}
+ 
+.resume-embed iframe {
+  display: block;
+  border: none;
+}
+ 
+.resume-download {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #c0607a;
+  border-radius: 20px;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: background-color 0.2s;
+}
+ 
+.resume-download:hover {
+  background-color: #8b3a52;
+}
+ 
 @media (max-width: 700px) {
   .lace-section {
     justify-content: center;
