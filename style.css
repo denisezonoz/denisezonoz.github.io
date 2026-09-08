@@ -104,6 +104,9 @@ main p {
   margin-bottom: 12px;
 }
 
+/* RESUME STUFF */
+
+
 .resume-embed {
   margin-top: 20px;
   border-radius: 6px;
@@ -142,4 +145,32 @@ main p {
   .lace-box {
     width: 100%;
   }
+}
+
+/* Clipboard add */
+.clipboard-section {
+  display: flex;
+  justify-content: center;
+  padding: 30px 60px;
+}
+ 
+.clipboard-box {
+  background-image: url('brownclipboard.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 650px;
+  padding: 140px 65px 65px 70px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: #5a3a4a;
+  line-height: 1.8;
+  text-align: center;
+}
+ 
+.clipboard-box h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.4rem;
+  color: #c0607a;
+  margin-bottom: 12px;
+  margin-top: -20px;
 }
