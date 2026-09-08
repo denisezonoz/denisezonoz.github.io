@@ -107,6 +107,37 @@
       0%   { opacity: 1; transform: translate(0, 0) scale(0.5); }
       100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(1.3); }
     }
+
+    .prompts-section {
+      text-align: center;
+      padding: 70px 20px 20px;
+    }
+
+    .prompts-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #c0607a;
+      text-shadow: 1px 2px 6px rgba(192, 96, 122, 0.15);
+      margin-bottom: 28px;
+    }
+
+    .ribbon-scroll {
+      overflow-x: auto;
+      padding-bottom: 12px;
+    }
+
+    .ribbon-svg {
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 6px 14px rgba(192, 96, 122, 0.25));
+    }
+
+    .ribbon-text {
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      fill: #ffffff;
+    }
   </style>
 </head>
 <body>
@@ -129,6 +160,41 @@
   </header>
 
   <div class="bows-grid" id="bows-grid"></div>
+
+  <section class="prompts-section">
+    <h2 class="prompts-title">prompts used to make this page ✨</h2>
+    <div class="ribbon-scroll">
+      <svg class="ribbon-svg" width="7500" height="260" viewBox="0 0 7500 260" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ribbonGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f0b8c8"/>
+            <stop offset="100%" stop-color="#d4849c"/>
+          </linearGradient>
+        </defs>
+        <path id="ribbonPath"
+          d="M 0,130 C 375,20 750,20 1125,130 C 1500,240 1875,240 2250,130 C 2625,20 3000,20 3375,130 C 3750,240 4125,240 4500,130 C 4875,20 5250,20 5625,130 C 6000,240 6375,240 6750,130 C 7125,20 7500,20 7500,130"
+          fill="none" stroke="url(#ribbonGrad)" stroke-width="90" stroke-linecap="round"/>
+        <path
+          d="M 0,130 C 375,20 750,20 1125,130 C 1500,240 1875,240 2250,130 C 2625,20 3000,20 3375,130 C 3750,240 4125,240 4500,130 C 4875,20 5250,20 5625,130 C 6000,240 6375,240 6750,130 C 7125,20 7500,20 7500,130"
+          fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" opacity="0.45"/>
+        <text class="ribbon-text">
+          <textPath href="#ribbonPath" startOffset="2%">🎀 "can you create an html page where there are multiple bows made of ribbon that unfold when you pull the bottoms"</textPath>
+        </text>
+        <text class="ribbon-text">
+          <textPath href="#ribbonPath" startOffset="22%">🎀 "here is an html file for my AI generated page, can you add the nav bar to it so i can get to it"</textPath>
+        </text>
+        <text class="ribbon-text">
+          <textPath href="#ribbonPath" startOffset="42%">🎀 "remove all of the words underneath each individual bow"</textPath>
+        </text>
+        <text class="ribbon-text">
+          <textPath href="#ribbonPath" startOffset="62%">🎀 "can you make the edges of the ribbon V-shaped?"</textPath>
+        </text>
+        <text class="ribbon-text">
+          <textPath href="#ribbonPath" startOffset="82%">🎀 "at the end of this page on top of a flowing ribbon, can you add these prompts that i used to generate the page"</textPath>
+        </text>
+      </svg>
+    </div>
+  </section>
 
   <script>
     const BOW_COLORS = [
@@ -168,16 +234,53 @@
       PARSED[key] = { tied: parseNums(TIED[key]), untied: parseNums(UNTIED[key]), tmpl: TIED[key] };
     }
 
+    const TAIL_WIDTH = 14;
+    const NOTCH_DEPTH = 18;
+
+    function updateTail(svg, side, p) {
+      const key = 'tail' + side;
+      const tied = PARSED[key].tied;
+      const untied = PARSED[key].untied;
+      // start = knot end (index 0,1), end = tip (index 6,7) of the M/C path numbers
+      const startX = lerp(tied[0], untied[0], p);
+      const startY = lerp(tied[1], untied[1], p);
+      const endX = lerp(tied[6], untied[6], p);
+      const endY = lerp(tied[7], untied[7], p);
+
+      const dx = endX - startX, dy = endY - startY;
+      const len = Math.hypot(dx, dy) || 1;
+      const ux = dx / len, uy = dy / len;      // direction along the tail
+      const px = -uy, py = ux;                  // perpendicular (ribbon width direction)
+      const halfW = TAIL_WIDTH / 2;
+
+      const leftTopX = startX + px * halfW, leftTopY = startY + py * halfW;
+      const rightTopX = startX - px * halfW, rightTopY = startY - py * halfW;
+      const leftTipX = endX + px * halfW, leftTipY = endY + py * halfW;
+      const rightTipX = endX - px * halfW, rightTipY = endY - py * halfW;
+      // apex sits back along the centerline from the tip, carving the V into the outline itself
+      const apexX = endX - ux * NOTCH_DEPTH, apexY = endY - uy * NOTCH_DEPTH;
+
+      const ribbonPath = `M ${leftTopX.toFixed(1)},${leftTopY.toFixed(1)} `
+        + `L ${leftTipX.toFixed(1)},${leftTipY.toFixed(1)} `
+        + `L ${apexX.toFixed(1)},${apexY.toFixed(1)} `
+        + `L ${rightTipX.toFixed(1)},${rightTipY.toFixed(1)} `
+        + `L ${rightTopX.toFixed(1)},${rightTopY.toFixed(1)} Z`;
+
+      const tailEl = svg.querySelector('#tail' + side);
+      if (tailEl) tailEl.setAttribute('d', ribbonPath);
+
+      // highlight stripe stops at the apex so it doesn't cross the open notch
+      const stripeEl = svg.querySelector('#stripe' + side);
+      if (stripeEl) stripeEl.setAttribute('d', `M ${startX.toFixed(1)},${startY.toFixed(1)} L ${apexX.toFixed(1)},${apexY.toFixed(1)}`);
+    }
+
     function applyProgress(svg, p) {
-      for (const key of ['loopL', 'loopR', 'tailL', 'tailR']) {
+      for (const key of ['loopL', 'loopR']) {
         const el = svg.querySelector('#' + key);
         if (el) el.setAttribute('d', buildPath(PARSED[key].tmpl, lerpNums(PARSED[key].tied, PARSED[key].untied, p)));
       }
-      ['stripeL', 'stripeR'].forEach((id, i) => {
-        const el = svg.querySelector('#' + id);
-        const key = i === 0 ? 'tailL' : 'tailR';
-        if (el) el.setAttribute('d', buildPath(PARSED[key].tmpl, lerpNums(PARSED[key].tied, PARSED[key].untied, p)));
-      });
+      updateTail(svg, 'L', p);
+      updateTail(svg, 'R', p);
       const knot = svg.querySelector('#knot');
       if (knot) {
         const s = 1 - p;
@@ -221,10 +324,10 @@
             <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="${color.dark}" flood-opacity="0.25"/>
           </filter>
         </defs>
-        <path id="tailL" d="${TIED.tailL}" fill="none" stroke="${color.main}" stroke-width="14" stroke-linecap="round" filter="url(#sh${index})"/>
-        <path id="stripeL" d="${TIED.tailL}" fill="none" stroke="${color.light}" stroke-width="4" stroke-linecap="round"/>
-        <path id="tailR" d="${TIED.tailR}" fill="none" stroke="${color.main}" stroke-width="14" stroke-linecap="round" filter="url(#sh${index})"/>
-        <path id="stripeR" d="${TIED.tailR}" fill="none" stroke="${color.light}" stroke-width="4" stroke-linecap="round"/>
+        <path id="tailL" fill="${color.main}" stroke="${color.dark}" stroke-width="1" stroke-opacity="0.3" filter="url(#sh${index})"/>
+        <path id="stripeL" fill="none" stroke="${color.light}" stroke-width="4" stroke-linecap="round"/>
+        <path id="tailR" fill="${color.main}" stroke="${color.dark}" stroke-width="1" stroke-opacity="0.3" filter="url(#sh${index})"/>
+        <path id="stripeR" fill="none" stroke="${color.light}" stroke-width="4" stroke-linecap="round"/>
         <path id="loopL" d="${TIED.loopL}" fill="${color.main}" stroke="${color.dark}" stroke-width="1.5" filter="url(#sh${index})"/>
         <path id="loopR" d="${TIED.loopR}" fill="${color.main}" stroke="${color.dark}" stroke-width="1.5" filter="url(#sh${index})"/>
         <path d="M 58,58 C 52,50 48,62 54,66" fill="none" stroke="${color.light}" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
@@ -235,6 +338,7 @@
       `;
 
       wrapper.appendChild(svg);
+      applyProgress(svg, 0);
 
       // Drag logic
       let progress = 0;
