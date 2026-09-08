@@ -65,3 +65,51 @@ main p {
   color: #9b5068;
   letter-spacing: 0.03em;
 }
+
+/* lace box */
+
+.lace-section {
+  display: flex;
+  padding: 30px 60px;
+}
+
+/* odd sections (1st, 3rd) align left */
+.lace-section:nth-child(odd) {
+  justify-content: flex-start;
+}
+
+/* even sections (2nd) align right */
+.lace-section:nth-child(even) {
+  justify-content: flex-end;
+}
+
+.lace-box {
+  background-image: url('textboxborder.png');
+  background-color: white;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 700px;
+  min-height: 400px;
+  padding: 70px 90px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: #5a3a4a;
+  line-height: 1.8;
+}
+
+.lace-box h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6rem;
+  color: #c0607a;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 700px) {
+  .lace-section {
+    justify-content: center;
+    padding: 20px;
+  }
+  .lace-box {
+    width: 100%;
+  }
+}
