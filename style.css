@@ -7,7 +7,7 @@
 }
 
 body {
-  background-image: url('stripedpink.png');
+  background-image: url('images/stripedpink.png');
   background-repeat: repeat;
   background-size: 420px auto;
   background-color: #fdf6f0;
@@ -182,7 +182,7 @@ main p {
 }
 
 .lace-box {
-  background-image: url('textboxborder.png');
+  background-image: url('images/textboxborder.png');
   background-color: white;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -211,7 +211,7 @@ main p {
 }
 
 .clipboard-box {
-  background-image: url('brownclipboard.png');
+  background-image: url('images/brownclipboard.png');
   background-color: transparent;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -277,7 +277,7 @@ main p {
 }
 
 .skills-box {
-  background-image: url('paper.png');
+  background-image: url('images/paper.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 400px;
@@ -351,7 +351,7 @@ main p {
 }
 
 .board-box {
-  background-image: url('board.png');
+  background-image: url('images/board.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 1000px;
@@ -418,7 +418,7 @@ main p {
 
 .photo-strip {
   background-color: #fff;
-  background-image: url('photostrip.png');
+  background-image: url('images/photostrip.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 260px;
