@@ -299,7 +299,7 @@ main p {
   background-image: url('board.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  width: 700px;
+  width: 1000px;
   min-height: 400px;
   
   font-family: 'Nunito', sans-serif;
@@ -320,5 +320,21 @@ main p {
   font-size: 1.4rem;
   color: rgb(249, 233, 233);
   text-align: left;
-  padding: 0px 40px;
+  padding: 50px 40px;
+}
+
+.board-box ul {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.4rem;
+  color: rgb(249, 233, 233);
+  text-align: left;
+  padding: 50px 70px;
+  line-height: 1.8;
+}
+
+.board-box li {
+  margin-bottom: 10px;
+}
+.board-box li strong {
+  color: white;
 }
