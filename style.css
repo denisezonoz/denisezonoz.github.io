@@ -481,3 +481,30 @@ main p {
     max-width: 320px;
   }
 }
+
+/* navigation hearts */
+nav {
+  position: relative; /* needed so the hearts can position against the nav, not the page */
+  background-color: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(230, 170, 190, 0.4);
+  padding: 16px;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+.nav-heart {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 32px;
+  width: auto;
+}
+
+.nav-heart-left {
+  left: 24px;
+}
+
+.nav-heart-right {
+  right: 24px;
+}
