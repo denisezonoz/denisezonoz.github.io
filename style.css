@@ -262,6 +262,61 @@ main p {
   background-color: #8b3a52;
 }
 
+/* qualifications page layout */
+
+.qual-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 60px;
+  padding: 30px 60px;
+}
+
+.qual-row .clipboard-box {
+  flex-shrink: 0;
+}
+
+.skills-box {
+  background-image: url('paper.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 400px;
+  min-height: 400px;
+  padding: 60px 50px;
+  font-family: 'Nunito', sans-serif;
+  color: #5a3a4a;
+  line-height: 1.8;
+}
+
+.skills-box h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.2rem;
+  color: #c0607a;
+  margin-bottom: 12px;
+}
+
+.skills-box ul {
+  text-align: left;
+  padding-left: 20px;
+  font-size: 1.1rem;
+}
+
+.skills-box li {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+  .qual-row {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .skills-box {
+    width: 100%;
+    max-width: 560px;
+  }
+}
+
 @media (max-width: 700px) {
   .lace-section {
     justify-content: center;
@@ -337,4 +392,80 @@ main p {
 }
 .board-box li strong {
   color: white;
+}
+
+
+/* skills */
+.skills-strips {
+  position: relative;
+  width: 320px;
+  min-height: 960px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.binder-clip {
+  position: absolute;
+  top: 0;
+  transform: rotate(-6deg);
+  left: 50%;
+  transform: translateX(-70%);
+  width: 70px;
+  z-index: 4;
+}
+
+.photo-strip {
+  background-color: #fff;
+  background-image: url('photostrip.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 260px;
+  padding: 25px 25px 80px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(90, 58, 74, 0.2);
+}
+
+.strip-1 {
+  margin-top: 35px;
+  transform: rotate(-6deg);
+  margin-bottom: -10px; /* was -60px, much smaller overlap now */
+  z-index: 3;
+}
+
+.strip-2 {
+  transform: rotate(4deg);
+  margin-bottom: -5px; /* was -55px */
+  z-index: 2;
+}
+
+.strip-3 {
+  transform: rotate(-3deg);
+  z-index: 1;
+}
+.strip-4 {
+  transform: rotate(5deg);
+  z-index: 0;
+}
+
+.photo-strip h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.7rem;
+  color: #c0607a;
+  margin-bottom: 10px;
+}
+
+.photo-strip ul {
+  list-style: none;
+  font-size: 1rem;
+  color: #5a3a4a;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .skills-strips {
+    width: 100%;
+    max-width: 320px;
+  }
 }
