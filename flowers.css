@@ -1,0 +1,542 @@
+@import url('https://fonts.googleapis.com/css2?family=Crafty+Girls&family=Dancing+Script:wght@500;700&family=Nunito:wght@300;400;600&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color:white;
+  background-repeat: repeat;
+  background-size: 420px auto;
+  font-family: 'Nunito', sans-serif;
+  color: #5a3a4a;
+  min-height: 100vh;
+}
+
+nav {
+  background-color: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(230, 170, 190, 0.4);
+  padding: 16px;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+nav span {
+  color: #d4a0b0;
+  margin: 0 6px;
+}
+
+nav a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #c0607a;
+  text-decoration: none;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+nav a:hover {
+  color: #8b3a52;
+  background-color: rgba(230, 170, 190, 0.25);
+}
+
+main {
+  text-align: center;
+  padding-top: 64px;
+}
+
+h1.name {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #c0607a;
+  text-shadow: 1px 2px 6px rgba(192, 96, 122, 0.15);
+}
+
+main p {
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #9b5068;
+  letter-spacing: 0.03em;
+}
+
+/* ribbon under name */
+.name-ribbon {
+  position: relative; 
+  height: 40px;
+  width: 100%;
+  max-width: 500px;
+  background-image: url('images/bowribbon.png');
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.name-ribbon::before,
+.name-ribbon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-image: url('images/heartstamp.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.name-ribbon::before {
+  left: -20px; 
+}
+
+.name-ribbon::after {
+  right: -20px; 
+}
+/* home page, camera*/
+
+.intro-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.intro-text {
+  text-align: left;
+}
+
+.intro-text h1.name {
+  font-size: 6rem;
+}
+
+.intro-text p {
+  font-size: 1.2rem;
+  margin-top: 28px;
+}
+
+.camera-frame {
+  position: relative;
+  width: 460px;
+  aspect-ratio: 578 / 377;
+  flex-shrink: 0;
+}
+
+.camera-photo {
+  position: absolute;
+  left: 7.96%;
+  top: 22.28%;
+  width: 58.82%;
+  height: 66.31%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.camera-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  .intro-row {
+    flex-direction: column-reverse;
+    gap: 24px;
+    padding: 0 20px;
+  }
+  .intro-text {
+    text-align: center;
+  }
+  .intro-text h1.name {
+    font-size: 2.8rem;
+  }
+  .intro-text p {
+    font-size: 1rem;
+  }
+  .camera-frame {
+    width: 280px;
+  }
+}
+ 
+@media (max-width: 700px) {
+  .intro-row {
+    flex-direction: column-reverse;
+    gap: 24px;
+    padding: 0 20px;
+  }
+  .intro-text {
+    text-align: center;
+  }
+  .intro-text h1.name {
+    font-size: 2.8rem;
+  }
+  .intro-text p {
+    font-size: 1rem;
+  }
+  .camera-frame {
+    width: 280px;
+  }
+  .paper-section {
+    padding: 30px 20px;
+  }
+  .paper-box {
+    width: 100%;
+    padding: 45px 35px;
+  }
+}
+
+/* lace box */
+
+.lace-section {
+  display: flex;
+  padding: 30px 60px;
+}
+
+/* odd sections (1st, 3rd) align left */
+.lace-section:nth-child(odd) {
+  justify-content: flex-start;
+}
+
+/* even sections (2nd) align right */
+.lace-section:nth-child(even) {
+  justify-content: flex-end;
+}
+
+.lace-box {
+  background-image: url('images/textboxborder.png');
+  background-color: white;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 700px;
+  padding: 40px 90px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: #5a3a4a;
+  line-height: 1.8;
+}
+
+.lace-box h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.4rem;
+  color: #ebbbc8;
+  margin-bottom: 0px;
+}
+.lace-box h3 {
+  font-family: 'Crafty Girls', cursive;
+  font-size: 1.6rem;
+  color: #cbe7ce;
+  margin-bottom: 0px;
+}
+.lace-box p {
+  font-family: 'Crafty Girls', cursive;
+  font-size: 1rem;
+  color: #dabace;
+  margin-bottom: 50px;
+}
+
+/* clipboard box */
+
+.clipboard-section {
+  display: flex;
+  justify-content: center;
+  padding: 30px 60px;
+}
+
+.clipboard-box {
+  background-image: url('images/brownclipboard.png');
+  background-color: transparent;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 560px;
+  padding: 140px 65px 65px 70px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: #5a3a4a;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.clipboard-box h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.4rem;
+  color: #c0607a;
+  margin-top: -20px;
+  margin-bottom: 12px;
+}
+
+.resume-embed {
+  margin-top: 20px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 8px rgba(192, 96, 122, 0.15);
+}
+
+.resume-embed iframe {
+  display: block;
+  border: none;
+}
+
+.resume-download {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #c0607a;
+  border-radius: 20px;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: background-color 0.2s;
+}
+
+.resume-download:hover {
+  background-color: #8b3a52;
+}
+
+/* qualifications page layout */
+
+.qual-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 60px;
+  padding: 30px 60px;
+}
+
+.qual-row .clipboard-box {
+  flex-shrink: 0;
+}
+
+.skills-box {
+  background-image: url('images/paper.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 400px;
+  min-height: 400px;
+  padding: 60px 50px;
+  font-family: 'Nunito', sans-serif;
+  color: #5a3a4a;
+  line-height: 1.8;
+}
+
+.skills-box h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.2rem;
+  color: #c0607a;
+  margin-bottom: 12px;
+}
+
+.skills-box ul {
+  text-align: left;
+  padding-left: 20px;
+  font-size: 1.1rem;
+}
+
+.skills-box li {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+  .qual-row {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .skills-box {
+    width: 100%;
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 700px) {
+  .lace-section {
+    justify-content: center;
+    padding: 20px;
+  }
+  .lace-box {
+    width: 100%;
+  }
+  .clipboard-section {
+    padding: 20px;
+  }
+  .clipboard-box {
+    width: 100%;
+    padding: 22% 12% 12% 12%;
+  }
+}
+
+/* board for portfolio */
+.board-section {
+  display: flex;
+  padding: 30px 60px;
+}
+
+/* even sections align left */
+.board-section:nth-child(even) {
+  justify-content: flex-start;
+}
+
+/* odd sections align right */
+.board-section:nth-child(odd) {
+  justify-content: flex-end;
+}
+
+.board-box {
+  background-image: url('images/board.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 1000px;
+  min-height: 400px;
+  
+  font-family: 'Crafty Girls', cursive;
+  font-size: 1rem;
+  color: #ece3e8;
+  line-height: 1.8;
+}
+
+.board-box h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: white;
+  padding: 20px 20px;
+}
+
+.board-box p{
+  font-family: 'Crafty Girls', cursive;
+  font-size: 1.4rem;
+  color: rgb(249, 233, 233);
+  text-align: left;
+  padding: 50px 40px;
+}
+
+.board-box ul {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.4rem;
+  color: rgb(249, 233, 233);
+  text-align: left;
+  padding: 50px 70px;
+  line-height: 1.8;
+}
+
+.board-box li {
+  margin-bottom: 10px;
+}
+.board-box li strong {
+  color: white;
+}
+
+
+/* skills */
+.skills-strips {
+  position: relative;
+  width: 320px;
+  min-height: 960px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.binder-clip {
+  position: absolute;
+  top: 0;
+  transform: rotate(-6deg);
+  left: 50%;
+  transform: translateX(-70%);
+  width: 70px;
+  z-index: 4;
+}
+
+.photo-strip {
+  background-color: #fff;
+  background-image: url('images/photostrip.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 260px;
+  padding: 25px 25px 80px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(90, 58, 74, 0.2);
+}
+
+.strip-1 {
+  margin-top: 35px;
+  transform: rotate(-6deg);
+  margin-bottom: -10px; /* was -60px, much smaller overlap now */
+  z-index: 3;
+}
+
+.strip-2 {
+  transform: rotate(4deg);
+  margin-bottom: -5px; /* was -55px */
+  z-index: 2;
+}
+
+.strip-3 {
+  transform: rotate(-3deg);
+  z-index: 1;
+}
+.strip-4 {
+  transform: rotate(5deg);
+  z-index: 0;
+}
+
+.photo-strip h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.7rem;
+  color: #c0607a;
+  margin-bottom: 10px;
+}
+
+.photo-strip ul {
+  list-style: none;
+  font-size: 1rem;
+  color: #5a3a4a;
+  line-height: 1.7;
+  font-family: 'Crafty Girls', cursive;
+
+}
+
+@media (max-width: 900px) {
+  .skills-strips {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+/* navigation hearts */
+nav {
+  position: relative; /* needed so the hearts can position against the nav, not the page */
+  background-color: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(230, 170, 190, 0.4);
+  padding: 16px;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+.nav-heart {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 32px;
+  width: auto;
+}
+
+.nav-heart-left {
+  left: 24px;
+}
+
+.nav-heart-right {
+  right: 24px;
+}
