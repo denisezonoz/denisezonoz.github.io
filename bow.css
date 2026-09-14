@@ -235,6 +235,36 @@ main.home-main {
   line-height: 1.65;
   color: #c27080;
 }
+.hero-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 0px;
+}
+
+.hero-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1.5px solid rgba(228, 117, 138, 0.35);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(228, 117, 138, 0.12);
+}
+
+.hero-links a:hover {
+  background: rgba(255, 193, 204, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(228, 117, 138, 0.22);
+}
+
+.hero-links svg {
+  width: 22px;
+  height: 22px;
+}
 
 @media (max-width: 480px) {
   .hero-camera svg {
