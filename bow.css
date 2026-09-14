@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Crafty+Girls&family=Dancing+Script:wght@500;700&family=Nunito:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap');
+
+/* =========================================
+   GLOBAL / SHARED — used across every page
+   ========================================= */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,16 +12,20 @@
 }
 
 body {
-  background-image: url('images/stripedpink.png');
-  background-repeat: repeat;
-  background-size: 420px auto;
-  background-color: #fdf6f0;
+  background: repeating-linear-gradient(
+    -45deg,
+    #fff0f3,
+    #fff0f3 28px,
+    #fce4ec 28px,
+    #fce4ec 56px
+  );
   font-family: 'Nunito', sans-serif;
   color: #5a3a4a;
   min-height: 100vh;
 }
 
 nav {
+  position: relative; /* needed so the hearts can position against the nav, not the page */
   background-color: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(230, 170, 190, 0.4);
@@ -44,6 +54,22 @@ nav a:hover {
   background-color: rgba(230, 170, 190, 0.25);
 }
 
+.nav-heart {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 32px;
+  width: auto;
+}
+
+.nav-heart-left {
+  left: 24px;
+}
+
+.nav-heart-right {
+  right: 24px;
+}
+
 main {
   text-align: center;
   padding-top: 64px;
@@ -65,136 +91,232 @@ main p {
   letter-spacing: 0.03em;
 }
 
-/* ribbon under name */
-.name-ribbon {
-  position: relative; 
-  height: 40px;
-  width: 100%;
-  max-width: 500px;
-  background-image: url('images/bowribbon.png');
-  background-repeat: repeat-x;
-  background-size: auto 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+/* Bow / Flower theme toggle pill */
+
+.theme-toggle-bar {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
 }
 
-.name-ribbon::before,
-.name-ribbon::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background-image: url('images/heartstamp.png');
-  background-size: contain;
-  background-repeat: no-repeat;
+.theme-toggle-pill {
+  display: inline-flex;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid #e4758a;
+  box-shadow: 0 1px 6px rgba(90, 58, 74, 0.12);
 }
 
-.name-ribbon::before {
-  left: -20px; 
+.theme-toggle-pill button {
+  border: none;
+  cursor: pointer;
+  padding: 8px 22px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: background-color 0.2s, color 0.2s;
 }
 
-.name-ribbon::after {
-  right: -20px; 
+.theme-toggle-pill .btn-bow {
+  background-color: #fff0f3;
+  color: #c27080;
 }
-/* home page, camera*/
 
-.intro-row {
+.theme-toggle-pill .btn-bow.active {
+  background-color: #f48fb1;
+  color: #ffffff;
+}
+
+.theme-toggle-pill .btn-flower {
+  background-color: #f1f8e9;
+  color: #7b4f6e;
+}
+
+.theme-toggle-pill .btn-flower.active {
+  background-color: #a5d6a7;
+  color: #ffffff;
+}
+
+/* =========================================
+   INDEX PAGE
+   ========================================= */
+
+/* centered hero, styled after the Figma mockup */
+
+/* home page main has no extra top padding — hero-section handles its own centering */
+main.home-main {
+  padding-top: 0;
+}
+
+.hero-section {
+  min-height: calc(100vh - 68px); /* full viewport minus the nav bar */
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 60px;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 80px;
+  justify-content: center;
+  padding: 64px 24px;
 }
 
-.intro-text {
-  text-align: left;
-}
-
-.intro-text h1.name {
-  font-size: 6rem;
-}
-
-.intro-text p {
-  font-size: 1.2rem;
-  margin-top: 28px;
-}
-
-.camera-frame {
-  position: relative;
-  width: 460px;
-  aspect-ratio: 578 / 377;
-  flex-shrink: 0;
-}
-
-.camera-photo {
-  position: absolute;
-  left: 7.96%;
-  top: 22.28%;
-  width: 58.82%;
-  height: 66.31%;
-  object-fit: cover;
-  object-position: center top;
-}
-
-.camera-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  max-width: 28rem;
   width: 100%;
-  height: 100%;
-  pointer-events: none;
+  text-align: center;
 }
 
-@media (max-width: 700px) {
-  .intro-row {
-    flex-direction: column-reverse;
-    gap: 24px;
-    padding: 0 20px;
+.hero-camera {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 6px 10px rgba(90, 58, 74, 0.18));
+}
+
+.hero-floral-frame {
+  display: none;
+}
+
+.floral-corner {
+  display: none;
+}
+
+.hero-camera svg {
+  display: block;
+}
+
+.hero-camera-caption {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #d48fa0;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+}
+
+.hero-eyebrow {
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: #d48fa0;
+  font-family: 'Cormorant Garamond', serif;
+  margin-bottom: 8px;
+}
+
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 1.2;
+  color: #b5687a;
+  margin-bottom: 4px;
+  text-shadow: none;
+}
+
+.hero-bow {
+  display: flex;
+  justify-content: center;
+  margin: 12px auto 20px;
+}
+
+.hero-flower-divider {
+  display: none;
+}
+
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  line-height: 1.65;
+  color: #c27080;
+}
+
+@media (max-width: 480px) {
+  .hero-camera svg {
+    width: 280px;
+    height: auto;
   }
-  .intro-text {
-    text-align: center;
+  .hero-name {
+    font-size: 2.25rem;
   }
-  .intro-text h1.name {
-    font-size: 2.8rem;
-  }
-  .intro-text p {
+  .hero-subtitle {
     font-size: 1rem;
   }
-  .camera-frame {
-    width: 280px;
-  }
 }
- 
-@media (max-width: 700px) {
-  .intro-row {
-    flex-direction: column-reverse;
-    gap: 24px;
-    padding: 0 20px;
-  }
-  .intro-text {
-    text-align: center;
-  }
-  .intro-text h1.name {
-    font-size: 2.8rem;
-  }
-  .intro-text p {
-    font-size: 1rem;
-  }
-  .camera-frame {
-    width: 280px;
-  }
-  .paper-section {
-    padding: 30px 20px;
-  }
-  .paper-box {
-    width: 100%;
-    padding: 45px 35px;
-  }
+
+/* =========================================
+   PORTFOLIO PAGE
+   ========================================= */
+
+/* board for portfolio */
+.board-section {
+  display: flex;
+  padding: 30px 60px;
 }
+
+/* even sections align left */
+.board-section:nth-child(even) {
+  justify-content: flex-start;
+}
+
+/* odd sections align right */
+.board-section:nth-child(odd) {
+  justify-content: flex-end;
+}
+
+.board-box {
+  background-image: url('images/board.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 1000px;
+  min-height: 400px;
+
+  font-family: 'Crafty Girls', cursive;
+  font-size: 1rem;
+  color: #ece3e8;
+  line-height: 1.8;
+}
+
+.board-box h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: white;
+  padding: 20px 20px;
+}
+
+.board-box p {
+  font-family: 'Crafty Girls', cursive;
+  font-size: 1.4rem;
+  color: rgb(249, 233, 233);
+  text-align: left;
+  padding: 50px 40px;
+}
+
+.board-box ul {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.4rem;
+  color: rgb(249, 233, 233);
+  text-align: left;
+  padding: 50px 70px;
+  line-height: 1.8;
+}
+
+.board-box li {
+  margin-bottom: 10px;
+}
+
+.board-box li strong {
+  color: white;
+}
+
+/* =========================================
+   ACTIVITIES PAGE
+   ========================================= */
 
 /* lace box */
 
@@ -214,8 +336,7 @@ main p {
 }
 
 .lace-box {
-  background-image: url('images/textboxborder.png');
-  background-color: white;
+  background-image: url('images/lace_border.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 700px;
@@ -232,12 +353,14 @@ main p {
   color: #ebbbc8;
   margin-bottom: 0px;
 }
+
 .lace-box h3 {
   font-family: 'Crafty Girls', cursive;
   font-size: 1.6rem;
   color: #cbe7ce;
   margin-bottom: 0px;
 }
+
 .lace-box p {
   font-family: 'Crafty Girls', cursive;
   font-size: 1rem;
@@ -245,7 +368,33 @@ main p {
   margin-bottom: 50px;
 }
 
-/* clipboard box */
+@media (max-width: 700px) {
+  .lace-section {
+    justify-content: center;
+    padding: 20px;
+  }
+  .lace-box {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   QUALIFICATIONS PAGE
+   ========================================= */
+
+.qual-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 60px;
+  padding: 30px 60px;
+}
+
+.qual-row .clipboard-box {
+  flex-shrink: 0;
+}
+
+/* clipboard box (resume) */
 
 .clipboard-section {
   display: flex;
@@ -305,19 +454,7 @@ main p {
   background-color: #8b3a52;
 }
 
-/* qualifications page layout */
-
-.qual-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 60px;
-  padding: 30px 60px;
-}
-
-.qual-row .clipboard-box {
-  flex-shrink: 0;
-}
+/* skills box */
 
 .skills-box {
   background-image: url('images/paper.png');
@@ -348,97 +485,8 @@ main p {
   margin-bottom: 8px;
 }
 
-@media (max-width: 900px) {
-  .qual-row {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  .skills-box {
-    width: 100%;
-    max-width: 560px;
-  }
-}
+/* skills photo strips */
 
-@media (max-width: 700px) {
-  .lace-section {
-    justify-content: center;
-    padding: 20px;
-  }
-  .lace-box {
-    width: 100%;
-  }
-  .clipboard-section {
-    padding: 20px;
-  }
-  .clipboard-box {
-    width: 100%;
-    padding: 22% 12% 12% 12%;
-  }
-}
-
-/* board for portfolio */
-.board-section {
-  display: flex;
-  padding: 30px 60px;
-}
-
-/* even sections align left */
-.board-section:nth-child(even) {
-  justify-content: flex-start;
-}
-
-/* odd sections align right */
-.board-section:nth-child(odd) {
-  justify-content: flex-end;
-}
-
-.board-box {
-  background-image: url('images/board.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  width: 1000px;
-  min-height: 400px;
-  
-  font-family: 'Crafty Girls', cursive;
-  font-size: 1rem;
-  color: #ece3e8;
-  line-height: 1.8;
-}
-
-.board-box h2 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 2.5rem;
-  color: white;
-  padding: 20px 20px;
-}
-
-.board-box p{
-  font-family: 'Crafty Girls', cursive;
-  font-size: 1.4rem;
-  color: rgb(249, 233, 233);
-  text-align: left;
-  padding: 50px 40px;
-}
-
-.board-box ul {
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.4rem;
-  color: rgb(249, 233, 233);
-  text-align: left;
-  padding: 50px 70px;
-  line-height: 1.8;
-}
-
-.board-box li {
-  margin-bottom: 10px;
-}
-.board-box li strong {
-  color: white;
-}
-
-
-/* skills */
 .skills-strips {
   position: relative;
   width: 320px;
@@ -487,6 +535,7 @@ main p {
   transform: rotate(-3deg);
   z-index: 1;
 }
+
 .strip-4 {
   transform: rotate(5deg);
   z-index: 0;
@@ -505,39 +554,30 @@ main p {
   color: #5a3a4a;
   line-height: 1.7;
   font-family: 'Crafty Girls', cursive;
-
 }
 
 @media (max-width: 900px) {
+  .qual-row {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .skills-box {
+    width: 100%;
+    max-width: 560px;
+  }
   .skills-strips {
     width: 100%;
     max-width: 320px;
   }
 }
 
-/* navigation hearts */
-nav {
-  position: relative; /* needed so the hearts can position against the nav, not the page */
-  background-color: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(230, 170, 190, 0.4);
-  padding: 16px;
-  text-align: center;
-  letter-spacing: 0.04em;
-}
-
-.nav-heart {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 32px;
-  width: auto;
-}
-
-.nav-heart-left {
-  left: 24px;
-}
-
-.nav-heart-right {
-  right: 24px;
+@media (max-width: 700px) {
+  .clipboard-section {
+    padding: 20px;
+  }
+  .clipboard-box {
+    width: 100%;
+    padding: 22% 12% 12% 12%;
+  }
 }

@@ -42,5 +42,32 @@ window.onload = function(){
     if (savedSheet) {
         styleLink.setAttribute("href", savedSheet);
     }
+
+    // Highlight the correct button in the Bow / Flower toggle on load
+    updateActiveButtons(styleLink.getAttribute("href"));
+}
+
+// Sets the theme directly from the Bow / Flower pill buttons
+function setTheme(theme) {
+    var newSheet = (theme === "flower") ? "flowers.css" : "bow.css";
+    var styleLink = document.getElementById("pagestyle");
+    styleLink.setAttribute("href", newSheet);
+    localStorage.setItem("stylesheet", newSheet);
+    updateActiveButtons(newSheet);
+}
+
+// Adds/removes the "active" class so the current theme's button stays highlighted
+function updateActiveButtons(sheet) {
+    var bowBtn = document.querySelector(".btn-bow");
+    var flowerBtn = document.querySelector(".btn-flower");
+    if (!bowBtn || !flowerBtn) return;
+
+    if (sheet === "flowers.css") {
+        flowerBtn.classList.add("active");
+        bowBtn.classList.remove("active");
+    } else {
+        bowBtn.classList.add("active");
+        flowerBtn.classList.remove("active");
+    }
 }
 

@@ -10,7 +10,7 @@
 <body>
 
   <nav>
-    <img class="nav-heart nav-heart-left" src="images/pinkheartbutton.png" alt="">
+    <img class="nav-heart nav-heart-left" src="images/heart_button_ai.png" alt="">
     <a href="index.html">Home</a>
     <span>|</span>
     <a href="portfolio.html">Portfolio</a>
@@ -20,9 +20,15 @@
     <a href="qualifications.html">Qualifications</a>
     <span>|</span>
     <a href="sandbox.html">Sandbox</a>
-    <img class="nav-heart nav-heart-right" src="images/pinkheartbutton.png" alt="">
-    <button id="theme-toggle" onclick="toggleStyleSheet()">🎀 / 🌸</button>
+    <img class="nav-heart nav-heart-right" src="images/heart_button_ai.png" alt="">
   </nav>
+
+  <div class="theme-toggle-bar">
+    <div class="theme-toggle-pill">
+      <button type="button" class="btn-bow" onclick="setTheme('bow')">Bow</button>
+      <button type="button" class="btn-flower" onclick="setTheme('flower')">Flower</button>
+    </div>
+  </div>
 
   <main>
     <h1 class="name">Activities</h1>
@@ -46,7 +52,17 @@
 
   <section class="lace-section">
     <div class="lace-box">
+      <h2>Aggie Coding Club</h2>
+      <h3>General Member</h3>
+      <p>Being a member in ACC has helped me with full-stack web app development. A project I worked on through ACC is in my portfolio, where I collaborated with peers.
+</p>
+    </div>
+  </section>
+
+  <section class="lace-section">
+    <div class="lace-box">
       <h2>UCentre at Northgate</h2>
+      <h3>Community Assistant</h3>
       <p>As a Community Assistant, I coordinate leasing and resident services for a 700+ resident community, organizing events and managing resident documentation.</p>
     </div>
   </section>

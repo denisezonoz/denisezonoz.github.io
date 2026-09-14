@@ -10,7 +10,7 @@
 <body>
 
   <nav>
-    <img class="nav-heart nav-heart-left" src="images/pinkheartbutton.png" alt="">
+    <img class="nav-heart nav-heart-left" src="images/heart_button_ai.png" alt="">
     <a href="index.html">Home</a>
     <span>|</span>
     <a href="portfolio.html">Portfolio</a>
@@ -20,9 +20,15 @@
     <a href="qualifications.html">Qualifications</a>
     <span>|</span>
     <a href="sandbox.html">Sandbox</a>
-    <img class="nav-heart nav-heart-right" src="images/pinkheartbutton.png" alt="">
-    <button id="theme-toggle" onclick="toggleStyleSheet()">🎀 / 🌺</button>
+    <img class="nav-heart nav-heart-right" src="images/heart_button_ai.png" alt="">
   </nav>
+
+  <div class="theme-toggle-bar">
+    <div class="theme-toggle-pill">
+      <button type="button" class="btn-bow" onclick="setTheme('bow')">Bow</button>
+      <button type="button" class="btn-flower" onclick="setTheme('flower')">Flower</button>
+    </div>
+  </div>
 
   <main>
     <h1 class="name">Qualifications</h1>

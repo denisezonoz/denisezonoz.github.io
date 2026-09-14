@@ -10,7 +10,7 @@
 <body>
 
   <nav>
-    <img class="nav-heart nav-heart-left" src="images/pinkheartbutton.png" alt="">
+    <img class="nav-heart nav-heart-left" src="images/heart_button_ai.png" alt="">
     <a href="index.html">Home</a>
     <span>|</span>
     <a href="portfolio.html">Portfolio</a>
@@ -20,22 +20,287 @@
     <a href="qualifications.html">Qualifications</a>
     <span>|</span>
     <a href="sandbox.html">Sandbox</a>
-    <img class="nav-heart nav-heart-right" src="images/pinkheartbutton.png" alt="">
-    <button id="theme-toggle" onclick="toggleStyleSheet()">🎀 / 🌺</button>
+    <img class="nav-heart nav-heart-right" src="images/heart_button_ai.png" alt="">
   </nav>
 
-  <main>
-    <div class="intro-row">
-      <div class="intro-text">
-        <h1 class="name">Denise Zonoz</h1>
-        <div class="name-ribbon"></div>
-        <p>Hello! My name is Denise Zonoz and I am a Junior Computer Science Major, with a Minor in Mathematics at Texas A&M University.</p>
-      </div>
-      <div class="camera-frame">
-        <img class="camera-photo" src="images/headshot.png" alt="Denise Zonoz">
-        <img class="camera-overlay" src="images/pinkcamera.png" alt="">
-      </div>
+  <div class="theme-toggle-bar">
+    <div class="theme-toggle-pill">
+      <button type="button" class="btn-bow" onclick="setTheme('bow')">Bow</button>
+      <button type="button" class="btn-flower" onclick="setTheme('flower')">Flower</button>
     </div>
+  </div>
+
+  <div class="floral-corner floral-corner-left" aria-hidden="true">
+    <svg viewBox="0 0 120 120" width="120" height="120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 110 Q40 80 55 60" stroke="#a5d6a7" stroke-width="2" stroke-linecap="round" />
+      <path d="M20 110 Q10 75 30 55" stroke="#c8e6c9" stroke-width="1.5" stroke-linecap="round" />
+      <ellipse cx="28" cy="72" rx="7" ry="16" fill="#c8e6c9" opacity="0.7" transform="rotate(-40 28 72)" />
+      <g transform="translate(63,58)">
+        <ellipse cx="0" cy="-17" rx="5" ry="17" fill="#fce4ec" opacity="0.85" transform="rotate(0)" stroke="#f9a8c9" stroke-width="0.5" />
+        <ellipse cx="0" cy="-17" rx="5" ry="17" fill="#f8bbd0" opacity="0.85" transform="rotate(60)" stroke="#f9a8c9" stroke-width="0.5" />
+        <ellipse cx="0" cy="-17" rx="5" ry="17" fill="#fce4ec" opacity="0.85" transform="rotate(120)" stroke="#f9a8c9" stroke-width="0.5" />
+        <ellipse cx="0" cy="-17" rx="5" ry="17" fill="#f8bbd0" opacity="0.85" transform="rotate(180)" stroke="#f9a8c9" stroke-width="0.5" />
+        <ellipse cx="0" cy="-17" rx="5" ry="17" fill="#fce4ec" opacity="0.85" transform="rotate(240)" stroke="#f9a8c9" stroke-width="0.5" />
+        <ellipse cx="0" cy="-17" rx="5" ry="17" fill="#f8bbd0" opacity="0.85" transform="rotate(300)" stroke="#f9a8c9" stroke-width="0.5" />
+        <line x1="0" y1="0" x2="0" y2="-12" stroke="#e4758a" stroke-width="0.8" opacity="0.5" />
+        <line x1="0" y1="0" x2="10.39" y2="-6" stroke="#e4758a" stroke-width="0.8" opacity="0.5" />
+        <line x1="0" y1="0" x2="10.39" y2="6" stroke="#e4758a" stroke-width="0.8" opacity="0.5" />
+        <line x1="0" y1="0" x2="0" y2="12" stroke="#e4758a" stroke-width="0.8" opacity="0.5" />
+        <line x1="0" y1="0" x2="-10.39" y2="6" stroke="#e4758a" stroke-width="0.8" opacity="0.5" />
+        <line x1="0" y1="0" x2="-10.39" y2="-6" stroke="#e4758a" stroke-width="0.8" opacity="0.5" />
+        <circle cx="0" cy="0" r="4" fill="#ffd6e0" />
+      </g>
+    </svg>
+  </div>
+
+  <div class="floral-corner floral-corner-right" aria-hidden="true">
+    <svg viewBox="0 0 120 120" width="120" height="120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 110 Q40 80 55 60" stroke="#a5d6a7" stroke-width="2" stroke-linecap="round" />
+      <path d="M20 110 Q10 75 30 55" stroke="#c8e6c9" stroke-width="1.5" stroke-linecap="round" />
+      <ellipse cx="28" cy="72" rx="7" ry="16" fill="#c8e6c9" opacity="0.7" transform="rotate(-40 28 72)" />
+      <g transform="translate(63,58)">
+        <ellipse cx="0" cy="-17" rx="5" ry="17" fill="#fce4ec" opacity="0.85" transform="rotate(0)" stroke="#f9a8c9" stroke-width="0.5" />
+        <ellipse cx="0" cy="-17" rx="5" ry="17" fill="#f8bbd0" opacity="0.85" transform="rotate(60)" stroke="#f9a8c9" stroke-width="0.5" />
+        <ellipse cx="0" cy="-17" rx="5" ry="17" fill="#fce4ec" opacity="0.85" transform="rotate(120)" stroke="#f9a8c9" stroke-width="0.5" />
+        <ellipse cx="0" cy="-17" rx="5" ry="17" fill="#f8bbd0" opacity="0.85" transform="rotate(180)" stroke="#f9a8c9" stroke-width="0.5" />
+        <ellipse cx="0" cy="-17" rx="5" ry="17" fill="#fce4ec" opacity="0.85" transform="rotate(240)" stroke="#f9a8c9" stroke-width="0.5" />
+        <ellipse cx="0" cy="-17" rx="5" ry="17" fill="#f8bbd0" opacity="0.85" transform="rotate(300)" stroke="#f9a8c9" stroke-width="0.5" />
+        <line x1="0" y1="0" x2="0" y2="-12" stroke="#e4758a" stroke-width="0.8" opacity="0.5" />
+        <line x1="0" y1="0" x2="10.39" y2="-6" stroke="#e4758a" stroke-width="0.8" opacity="0.5" />
+        <line x1="0" y1="0" x2="10.39" y2="6" stroke="#e4758a" stroke-width="0.8" opacity="0.5" />
+        <line x1="0" y1="0" x2="0" y2="12" stroke="#e4758a" stroke-width="0.8" opacity="0.5" />
+        <line x1="0" y1="0" x2="-10.39" y2="6" stroke="#e4758a" stroke-width="0.8" opacity="0.5" />
+        <line x1="0" y1="0" x2="-10.39" y2="-6" stroke="#e4758a" stroke-width="0.8" opacity="0.5" />
+        <circle cx="0" cy="0" r="4" fill="#ffd6e0" />
+      </g>
+    </svg>
+  </div>
+
+
+  <main class="home-main">
+    <section class="hero-section">
+      <div class="hero-inner">
+
+        <div class="hero-camera">
+          <svg viewBox="0 0 280 200" width="380" height="271" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Camera body -->
+            <rect x="10" y="30" width="260" height="158" rx="20" fill="#f48fb1" />
+            <rect x="10" y="30" width="260" height="158" rx="20" stroke="#e4758a" stroke-width="2.5" />
+
+            <!-- Body highlight -->
+            <rect x="18" y="38" width="244" height="20" rx="10" fill="#ffc1cc" opacity="0.4" />
+
+            <!-- Shutter button -->
+            <rect x="210" y="18" width="34" height="18" rx="9" fill="#f48fb1" stroke="#e4758a" stroke-width="2" />
+            <rect x="210" y="18" width="34" height="18" rx="9" fill="#ffc1cc" opacity="0.5" />
+
+            <!-- Small lens (top-left) -->
+            <circle cx="46" cy="80" r="18" fill="#fce4ec" stroke="#e4758a" stroke-width="2" />
+            <circle cx="46" cy="80" r="12" fill="#fff0f3" stroke="#f48fb1" stroke-width="1.5" />
+            <circle cx="46" cy="80" r="6" fill="#e4758a" opacity="0.3" />
+            <circle cx="42" cy="76" r="2" fill="white" opacity="0.7" />
+
+            <!-- Flash -->
+            <rect x="22" y="46" width="16" height="10" rx="3" fill="#fff9c4" stroke="#e4758a" stroke-width="1.2" />
+
+            <!-- Screen bezel -->
+            <rect x="80" y="48" width="176" height="118" rx="8" fill="#1a0a0e" stroke="#e4758a" stroke-width="2" />
+
+            <!-- Screen surface -->
+            <rect x="84" y="52" width="168" height="110" rx="6" fill="#2d1520" />
+
+            <!-- Photo on screen, clipped to the screen shape -->
+            <clipPath id="screenClip">
+              <rect x="84" y="52" width="168" height="110" rx="6" />
+            </clipPath>
+            <g clip-path="url(#screenClip)">
+              <image href="images/headshot.png" x="84" y="52" width="168" height="110" preserveAspectRatio="xMidYMid slice" />
+              <!-- Screen glare -->
+              <path d="M84 52 L130 52 L100 90 L84 90Z" fill="white" opacity="0.06" />
+            </g>
+
+            <!-- Screen frame shine -->
+            <rect x="84" y="52" width="168" height="4" rx="2" fill="white" opacity="0.08" />
+
+            <!-- Mode dial / buttons on right -->
+            <circle cx="256" cy="90" r="7" fill="#fce4ec" stroke="#e4758a" stroke-width="1.5" />
+            <circle cx="256" cy="110" r="5" fill="#ffc1cc" stroke="#e4758a" stroke-width="1.2" />
+            <circle cx="256" cy="126" r="5" fill="#ffc1cc" stroke="#e4758a" stroke-width="1.2" />
+
+            <!-- Strap lug left -->
+            <rect x="8" y="54" width="8" height="20" rx="4" fill="#e4758a" />
+            <!-- Strap lug right -->
+            <rect x="264" y="54" width="8" height="20" rx="4" fill="#e4758a" />
+
+            <!-- Tiny heart sticker -->
+            <text x="26" y="158" font-size="14" fill="#ffd6e0">&#9829;</text>
+            <text x="50" y="162" font-size="10" fill="#ffd6e0">&#9829;</text>
+          </svg>
+        </div>
+
+        <div class="hero-floral-frame">
+          <svg class="floral-vines" viewBox="0 0 260 300" width="260" height="300" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+            <!-- vines -->
+            <path d="M30 260 Q20 200 28 140 Q36 80 60 40" stroke="#a5d6a7" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M230 260 Q240 200 232 140 Q224 80 200 40" stroke="#a5d6a7" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M60 40 Q130 10 200 40" stroke="#a5d6a7" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M30 260 Q130 285 230 260" stroke="#a5d6a7" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+            <!-- tendrils -->
+            <path d="M28 180 Q10 165 18 148" stroke="#c8e6c9" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+            <path d="M29 120 Q8 108 16 92" stroke="#c8e6c9" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+            <path d="M232 175 Q252 160 244 144" stroke="#c8e6c9" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+            <path d="M231 115 Q252 102 244 88" stroke="#c8e6c9" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+            <path d="M100 14 Q95 -4 110 -2" stroke="#c8e6c9" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+            <path d="M160 14 Q165 -4 150 -2" stroke="#c8e6c9" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+
+            <!-- leaves along left vine -->
+            <ellipse cx="30" cy="210" rx="6" ry="13" fill="#b2dfb4" opacity="0.8" transform="rotate(-35 30 210)"/>
+            <ellipse cx="26" cy="160" rx="6" ry="13" fill="#a5d6a7" opacity="0.75" transform="rotate(25 26 160)"/>
+            <ellipse cx="31" cy="105" rx="5" ry="11" fill="#c8e6c9" opacity="0.8" transform="rotate(-20 31 105)"/>
+            <ellipse cx="44" cy="62" rx="5" ry="11" fill="#b2dfb4" opacity="0.75" transform="rotate(40 44 62)"/>
+
+            <!-- leaves along right vine -->
+            <ellipse cx="230" cy="205" rx="6" ry="13" fill="#b2dfb4" opacity="0.8" transform="rotate(35 230 205)"/>
+            <ellipse cx="234" cy="155" rx="6" ry="13" fill="#a5d6a7" opacity="0.75" transform="rotate(-25 234 155)"/>
+            <ellipse cx="229" cy="100" rx="5" ry="11" fill="#c8e6c9" opacity="0.8" transform="rotate(20 229 100)"/>
+            <ellipse cx="216" cy="58" rx="5" ry="11" fill="#b2dfb4" opacity="0.75" transform="rotate(-40 216 58)"/>
+
+            <!-- leaves along top vine -->
+            <ellipse cx="100" cy="22" rx="5" ry="11" fill="#a5d6a7" opacity="0.75" transform="rotate(-60 100 22)"/>
+            <ellipse cx="160" cy="22" rx="5" ry="11" fill="#a5d6a7" opacity="0.75" transform="rotate(60 160 22)"/>
+
+            <!-- orchid blooms -->
+            <g transform="translate(62,38)">
+              <ellipse cx="0" cy="-12" rx="5" ry="11" fill="#f9c0d0" opacity="0.9" transform="rotate(-20)"/>
+              <ellipse cx="0" cy="-12" rx="5" ry="11" fill="#f9c0d0" opacity="0.9" transform="rotate(20)"/>
+              <ellipse cx="-11" cy="-2" rx="4" ry="10" fill="#f9c0d0" opacity="0.8" transform="rotate(-70)"/>
+              <ellipse cx="11" cy="-2" rx="4" ry="10" fill="#f9c0d0" opacity="0.8" transform="rotate(70)"/>
+              <ellipse cx="0" cy="6" rx="6" ry="7" fill="#ffd6e0" opacity="0.95"/>
+              <circle cx="0" cy="0" r="3.5" fill="#fff0f3"/>
+              <circle cx="0" cy="0" r="1.8" fill="#f9a8c9"/>
+            </g>
+            <g transform="translate(198,38)">
+              <ellipse cx="0" cy="-12" rx="5" ry="11" fill="#f9c0d0" opacity="0.9" transform="rotate(-20)"/>
+              <ellipse cx="0" cy="-12" rx="5" ry="11" fill="#f9c0d0" opacity="0.9" transform="rotate(20)"/>
+              <ellipse cx="-11" cy="-2" rx="4" ry="10" fill="#f9c0d0" opacity="0.8" transform="rotate(-70)"/>
+              <ellipse cx="11" cy="-2" rx="4" ry="10" fill="#f9c0d0" opacity="0.8" transform="rotate(70)"/>
+              <ellipse cx="0" cy="6" rx="6" ry="7" fill="#ffd6e0" opacity="0.95"/>
+              <circle cx="0" cy="0" r="3.5" fill="#fff0f3"/>
+              <circle cx="0" cy="0" r="1.8" fill="#f9a8c9"/>
+            </g>
+            <g transform="translate(130,12)">
+              <ellipse cx="0" cy="-12" rx="5" ry="11" fill="#fce4ec" opacity="0.9" transform="rotate(-20)"/>
+              <ellipse cx="0" cy="-12" rx="5" ry="11" fill="#fce4ec" opacity="0.9" transform="rotate(20)"/>
+              <ellipse cx="-11" cy="-2" rx="4" ry="10" fill="#fce4ec" opacity="0.8" transform="rotate(-70)"/>
+              <ellipse cx="11" cy="-2" rx="4" ry="10" fill="#fce4ec" opacity="0.8" transform="rotate(70)"/>
+              <ellipse cx="0" cy="6" rx="6" ry="7" fill="#ffd6e0" opacity="0.95"/>
+              <circle cx="0" cy="0" r="3.5" fill="#fff0f3"/>
+              <circle cx="0" cy="0" r="1.8" fill="#f9a8c9"/>
+            </g>
+
+            <!-- lily blooms -->
+            <g transform="translate(20,148)">
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#fce4ec" opacity="0.85" transform="rotate(0)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#f8bbd0" opacity="0.85" transform="rotate(60)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#fce4ec" opacity="0.85" transform="rotate(120)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#f8bbd0" opacity="0.85" transform="rotate(180)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#fce4ec" opacity="0.85" transform="rotate(240)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#f8bbd0" opacity="0.85" transform="rotate(300)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <circle cx="0" cy="0" r="3" fill="#ffd6e0"/>
+            </g>
+            <g transform="translate(240,148)">
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#fce4ec" opacity="0.85" transform="rotate(0)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#f8bbd0" opacity="0.85" transform="rotate(60)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#fce4ec" opacity="0.85" transform="rotate(120)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#f8bbd0" opacity="0.85" transform="rotate(180)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#fce4ec" opacity="0.85" transform="rotate(240)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#f8bbd0" opacity="0.85" transform="rotate(300)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <circle cx="0" cy="0" r="3" fill="#ffd6e0"/>
+            </g>
+            <g transform="translate(48,262)">
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#fce4ec" opacity="0.85" transform="rotate(0)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#f8bbd0" opacity="0.85" transform="rotate(60)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#fce4ec" opacity="0.85" transform="rotate(120)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#f8bbd0" opacity="0.85" transform="rotate(180)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#fce4ec" opacity="0.85" transform="rotate(240)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#f8bbd0" opacity="0.85" transform="rotate(300)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <circle cx="0" cy="0" r="3" fill="#ffd6e0"/>
+            </g>
+            <g transform="translate(212,262)">
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#fce4ec" opacity="0.85" transform="rotate(0)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#f8bbd0" opacity="0.85" transform="rotate(60)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#fce4ec" opacity="0.85" transform="rotate(120)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#f8bbd0" opacity="0.85" transform="rotate(180)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#fce4ec" opacity="0.85" transform="rotate(240)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <ellipse cx="0" cy="-13" rx="4" ry="13" fill="#f8bbd0" opacity="0.85" transform="rotate(300)" stroke="#f9a8c9" stroke-width="0.4"/>
+              <circle cx="0" cy="0" r="3" fill="#ffd6e0"/>
+            </g>
+
+            <!-- small buds -->
+            <circle cx="26" cy="88" r="3" fill="#f9c0d0" opacity="0.7"/>
+            <circle cx="234" cy="88" r="3" fill="#f9c0d0" opacity="0.7"/>
+            <circle cx="88" cy="16" r="3" fill="#c8e6c9" opacity="0.7"/>
+            <circle cx="172" cy="16" r="3" fill="#c8e6c9" opacity="0.7"/>
+          </svg>
+
+          <div class="floral-photo">
+            <img src="images/headshot.png" alt="Denise Zonoz">
+          </div>
+        </div>
+
+        <div class="hero-text">
+          <p class="hero-eyebrow">Texas A&amp;M &middot; Class of 2028</p>
+          <h1 class="hero-name">Denise Zonoz</h1>
+
+          <div class="hero-bow">
+            <svg viewBox="0 0 260 48" width="260" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Left ribbon strip -->
+              <path d="M0 22 L112 22 L112 26 L0 26Z" fill="#f48fb1" />
+              <path d="M0 22 L112 22 L112 23 L0 23Z" fill="#ffc1cc" />
+
+              <!-- Right ribbon strip -->
+              <path d="M148 22 L260 22 L260 26 L148 26Z" fill="#f48fb1" />
+              <path d="M148 22 L260 22 L260 23 L148 23Z" fill="#ffc1cc" />
+
+              <!-- Left bow loop -->
+              <path d="M130 24 C125 24 90 4 88 14 C86 22 115 30 130 26Z" fill="#ffc1cc" stroke="#e4758a" stroke-width="1.2" />
+              <path d="M130 24 C125 24 90 4 88 14 C86 22 115 30 130 26Z" fill="#f48fb1" opacity="0.4" />
+
+              <!-- Right bow loop -->
+              <path d="M130 24 C135 24 170 4 172 14 C174 22 145 30 130 26Z" fill="#ffc1cc" stroke="#e4758a" stroke-width="1.2" />
+              <path d="M130 24 C135 24 170 4 172 14 C174 22 145 30 130 26Z" fill="#f48fb1" opacity="0.4" />
+
+              <!-- Left hanging tail -->
+              <path d="M116 26 C113 32 110 40 116 46 C119 46 122 38 124 26Z" fill="#f48fb1" stroke="#e4758a" stroke-width="1" />
+              <!-- Right hanging tail -->
+              <path d="M144 26 C147 32 150 40 144 46 C141 46 138 38 136 26Z" fill="#f48fb1" stroke="#e4758a" stroke-width="1" />
+
+              <!-- Knot center -->
+              <ellipse cx="130" cy="25" rx="10" ry="7" fill="#f48fb1" stroke="#e4758a" stroke-width="1.2" />
+              <ellipse cx="130" cy="25" rx="5" ry="3.5" fill="#ffc1cc" />
+            </svg>
+          </div>
+
+          <div class="hero-flower-divider">
+            <span class="divider-line"></span>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="4" fill="#f48fb1" />
+              <ellipse cx="12" cy="5" rx="3" ry="5" fill="#f9a8c9" opacity="0.85" transform="rotate(0 12 12)" />
+              <ellipse cx="12" cy="5" rx="3" ry="5" fill="#f9a8c9" opacity="0.85" transform="rotate(72 12 12)" />
+              <ellipse cx="12" cy="5" rx="3" ry="5" fill="#f9a8c9" opacity="0.85" transform="rotate(144 12 12)" />
+              <ellipse cx="12" cy="5" rx="3" ry="5" fill="#f9a8c9" opacity="0.85" transform="rotate(216 12 12)" />
+              <ellipse cx="12" cy="5" rx="3" ry="5" fill="#f9a8c9" opacity="0.85" transform="rotate(288 12 12)" />
+            </svg>
+            <span class="divider-line"></span>
+          </div>
+
+          <p class="hero-subtitle">Hello! My name is Denise Zonoz and I am a Junior Computer Science Major, with a Minor in Mathematics at Texas A&amp;M University.</p>
+        </div>
+
+      </div>
+    </section>
   </main>
 
 </body>
