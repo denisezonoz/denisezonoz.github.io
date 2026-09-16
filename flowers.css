@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Crafty+Girls&family=Dancing+Script:wght@500;700&family=Nunito:wght@300;400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&family=Great+Vibes&family=Caveat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,300;0,400;1,300&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,8 +14,8 @@ body {
     radial-gradient(ellipse at 30% 85%, rgba(198, 235, 198, 0.4) 0%, transparent 45%),
     radial-gradient(ellipse at 55% 50%, rgba(255, 225, 230, 0.3) 0%, transparent 50%),
     #fdfaf9;
-  font-family: 'Nunito', sans-serif;
-  color: #5a3a4a;
+  font-family: 'Quicksand', sans-serif;
+  color: #3d5a3e;
   min-height: 100vh;
 }
 
@@ -55,18 +55,18 @@ main {
 }
 
 h1.name {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Great Vibes', cursive;
   font-size: 2.8rem;
-  font-weight: 700;
-  color: #c0607a;
-  text-shadow: 1px 2px 6px rgba(192, 96, 122, 0.15);
+  font-weight: 400;
+  color: #4a7a50;
+  text-shadow: 1px 2px 6px rgba(74, 122, 80, 0.15);
 }
 
 main p {
   margin-top: 20px;
   font-size: 1rem;
   font-weight: 300;
-  color: #9b5068;
+  color: #5b7a5e;
   letter-spacing: 0.03em;
 }
 
@@ -90,7 +90,7 @@ main p {
   border: none;
   cursor: pointer;
   padding: 8px 22px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'EB Garamond', serif;
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.15em;
@@ -203,17 +203,17 @@ main.home-main {
   text-transform: uppercase;
   font-size: 0.75rem;
   font-weight: 300;
-  color: #d48fa0;
-  font-family: 'Cormorant Garamond', serif;
+  color: #7aab7e;
+  font-family: 'EB Garamond', serif;
   margin-bottom: 8px;
 }
 
 .hero-name {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lora', serif;
   font-weight: 400;
   font-size: 3rem;
   line-height: 1.2;
-  color: #b5687a;
+  color: #4a7a50;
   margin-bottom: 4px;
   text-shadow: none;
 }
@@ -238,12 +238,12 @@ main.home-main {
 }
 
 .hero-subtitle {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'EB Garamond', serif;
   font-weight: 300;
   font-size: 1.15rem;
   letter-spacing: 0.02em;
   line-height: 1.65;
-  color: #c27080;
+  color: #5b7a5e;
 }
 .hero-links {
   display: flex;
@@ -324,28 +324,28 @@ main.home-main {
   background-repeat: no-repeat;
   width: 700px;
   padding: 100px 90px;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 1rem;
-  color: #5a3a4a;
+  color: #3d5a3e;
   line-height: 1.8;
 }
 
 .activities-box h2 {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Great Vibes', cursive;
   font-size: 2.4rem;
-  color: #7b4f6e;
+  color: #4a7a50;
   margin-bottom: 0px;
 }
 .activities-box h3 {
-  font-family: 'Crafty Girls', cursive;
+  font-family: 'Caveat', cursive;
   font-size: 1.6rem;
-  color: #5b8a5e;
+  color: #6b9e70;
   margin-bottom: 0px;
 }
 .activities-box p {
-  font-family: 'Crafty Girls', cursive;
-  font-size: 1rem;
-  color: #5a3a4a;
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  color: #bd72a6;
   margin-bottom: 50px;
 }
 
@@ -364,17 +364,17 @@ main.home-main {
   background-repeat: no-repeat;
   width: 560px;
   padding: 50px 65px 65px 70px;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 1rem;
-  color: #5a3a4a;
+  color: #3d5a3e;
   line-height: 1.8;
   text-align: center;
 }
 
 .resume-box h2 {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Great Vibes', cursive;
   font-size: 2.4rem;
-  color: #c0607a;
+  color: #4a7a50;
   margin-top: -20px;
   margin-bottom: 12px;
 }
@@ -398,7 +398,7 @@ main.home-main {
   font-size: 0.85rem;
   font-weight: 600;
   color: #ffffff;
-  background-color: #c0607a;
+  background-color: #4a7a50;
   border-radius: 20px;
   text-decoration: none;
   letter-spacing: 0.03em;
@@ -406,7 +406,7 @@ main.home-main {
 }
 
 .resume-download:hover {
-  background-color: #8b3a52;
+  background-color: #3d5a3e;
 }
 
 /* qualifications page layout */
@@ -431,15 +431,15 @@ main.home-main {
   width: 400px;
   min-height: 400px;
   padding: 60px 50px;
-  font-family: 'Nunito', sans-serif;
-  color: #5a3a4a;
+  font-family: 'Quicksand', sans-serif;
+  color: #3d5a3e;
   line-height: 1.8;
 }
 
 .skills-box h2 {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Great Vibes', cursive;
   font-size: 2.2rem;
-  color: #c0607a;
+  color: #4a7a50;
   margin-bottom: 12px;
 }
 
@@ -514,9 +514,9 @@ main.home-main {
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 2px 8px rgba(91, 138, 94, 0.15);
 
-  font-family: 'Crafty Girls', cursive;
-  font-size: 1rem;
-  color: #5a3a4a;
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  color: #3d5a3e;
   line-height: 1.8;
 }
 
@@ -527,7 +527,7 @@ main.home-main {
 }
 
 .portfolio-box h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lora', serif;
   font-style: italic;
   font-size: 1.8rem;
   color: #3f6b42;
@@ -615,18 +615,18 @@ main.home-main {
 }
 
 .photo-strip h3 {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Great Vibes', cursive;
   font-size: 1.7rem;
-  color: #c0607a;
+  color: #4a7a50;
   margin-bottom: 10px;
 }
 
 .photo-strip ul {
   list-style: none;
-  font-size: 1rem;
-  color: #5a3a4a;
+  font-size: 1.2rem;
+  color: #3d5a3e;
   line-height: 1.7;
-  font-family: 'Crafty Girls', cursive;
+  font-family: 'Caveat', cursive;
 
 }
 
