@@ -308,13 +308,13 @@ main.home-main {
   padding: 30px 60px;
 }
 
-/* odd sections (1st, 3rd) align left */
-.activities-section:nth-child(odd) {
+/* even sections align left */
+.activities-section:nth-child(even) {
   justify-content: flex-start;
 }
 
-/* even sections (2nd) align right */
-.activities-section:nth-child(even) {
+/* even sections align right */
+.activities-section:nth-child(odd) {
   justify-content: flex-end;
 }
 
@@ -488,13 +488,13 @@ main.home-main {
   padding: 30px 60px;
 }
 
-/* even sections align left */
-.portfolio-section:nth-child(even) {
+/* odd sections align left */
+.portfolio-section:nth-child(odd) {
   justify-content: flex-start;
 }
 
-/* odd sections align right */
-.portfolio-section:nth-child(odd) {
+/* even sections align right */
+.portfolio-section:nth-child(even) {
   justify-content: flex-end;
 }
 
@@ -527,8 +527,9 @@ main.home-main {
 }
 
 .portfolio-box h2 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.8rem;
   color: #3f6b42;
   padding: 0px 50px;
   transition: opacity 0.2s ease;
