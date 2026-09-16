@@ -303,22 +303,22 @@ main.home-main {
 
 /* lace box */
 
-.lace-section {
+.activities-section {
   display: flex;
   padding: 30px 60px;
 }
 
 /* odd sections (1st, 3rd) align left */
-.lace-section:nth-child(odd) {
+.activities-section:nth-child(odd) {
   justify-content: flex-start;
 }
 
 /* even sections (2nd) align right */
-.lace-section:nth-child(even) {
+.activities-section:nth-child(even) {
   justify-content: flex-end;
 }
 
-.lace-box {
+.activities-box {
   background-image: url('images/green_pink_box.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -330,19 +330,19 @@ main.home-main {
   line-height: 1.8;
 }
 
-.lace-box h2 {
+.activities-box h2 {
   font-family: 'Dancing Script', cursive;
   font-size: 2.4rem;
   color: #7b4f6e;
   margin-bottom: 0px;
 }
-.lace-box h3 {
+.activities-box h3 {
   font-family: 'Crafty Girls', cursive;
   font-size: 1.6rem;
   color: #5b8a5e;
   margin-bottom: 0px;
 }
-.lace-box p {
+.activities-box p {
   font-family: 'Crafty Girls', cursive;
   font-size: 1rem;
   color: #5a3a4a;
@@ -351,13 +351,13 @@ main.home-main {
 
 /* clipboard box */
 
-.clipboard-section {
+.resume-section {
   display: flex;
   justify-content: center;
   padding: 30px 60px;
 }
 
-.clipboard-box {
+.resume-box {
   background-image: url('images/flower-box-frame.png');
   background-color: rgba(255, 255, 255, 0.55);
   background-size: 100% 100%;
@@ -371,7 +371,7 @@ main.home-main {
   text-align: center;
 }
 
-.clipboard-box h2 {
+.resume-box h2 {
   font-family: 'Dancing Script', cursive;
   font-size: 2.4rem;
   color: #c0607a;
@@ -411,7 +411,7 @@ main.home-main {
 
 /* qualifications page layout */
 
-.qual-row {
+.qualifications-row {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -419,7 +419,7 @@ main.home-main {
   padding: 30px 60px;
 }
 
-.qual-row .clipboard-box {
+.qualifications-row .resume-box {
   flex-shrink: 0;
 }
 
@@ -454,7 +454,7 @@ main.home-main {
 }
 
 @media (max-width: 900px) {
-  .qual-row {
+  .qualifications-row {
     flex-direction: column;
     align-items: center;
     padding: 20px;
@@ -466,39 +466,39 @@ main.home-main {
 }
 
 @media (max-width: 700px) {
-  .lace-section {
+  .activities-section {
     justify-content: center;
     padding: 20px;
   }
-  .lace-box {
+  .activities-box {
     width: 100%;
   }
-  .clipboard-section {
+  .resume-section {
     padding: 20px;
   }
-  .clipboard-box {
+  .resume-box {
     width: 100%;
     padding: 22% 12% 12% 12%;
   }
 }
 
 /* board for portfolio */
-.board-section {
+.portfolio-section {
   display: flex;
   padding: 30px 60px;
 }
 
 /* even sections align left */
-.board-section:nth-child(even) {
+.portfolio-section:nth-child(even) {
   justify-content: flex-start;
 }
 
 /* odd sections align right */
-.board-section:nth-child(odd) {
+.portfolio-section:nth-child(odd) {
   justify-content: flex-end;
 }
 
-.board-box {
+.portfolio-box {
   background-image: url('images/pastel_green_border_top.png');
   background-color: rgba(255, 255, 255, 0.55);
   background-size: 100% 100%;
@@ -512,14 +512,14 @@ main.home-main {
   line-height: 1.8;
 }
 
-.board-box h2 {
+.portfolio-box h2 {
   font-family: 'Dancing Script', cursive;
   font-size: 2.5rem;
   color: #ca88a9;
   padding: 20px 20px 0px;
 }
 
-.board-box p{
+.portfolio-box p{
   font-family: 'Crafty Girls', cursive;
   font-size: 1.4rem;
   color: #c17ea0;
@@ -527,7 +527,7 @@ main.home-main {
   padding: 0px 0px;
 }
 
-.board-box ul {
+.portfolio-box ul {
   font-family: 'Nunito', sans-serif;
   font-size: 1.4rem;
   color: #5a3a4a;
@@ -536,10 +536,10 @@ main.home-main {
   line-height: 1.8;
 }
 
-.board-box li {
+.portfolio-box li {
   margin-bottom: 10px;
 }
-.board-box li strong {
+.portfolio-box li strong {
   color: #3f6b42;
 }
 

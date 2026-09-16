@@ -284,22 +284,22 @@ main.home-main {
    ========================================= */
 
 /* board for portfolio */
-.board-section {
+.portfolio-section {
   display: flex;
   padding: 30px 60px;
 }
 
 /* even sections align left */
-.board-section:nth-child(even) {
+.portfolio-section:nth-child(even) {
   justify-content: flex-start;
 }
 
 /* odd sections align right */
-.board-section:nth-child(odd) {
+.portfolio-section:nth-child(odd) {
   justify-content: flex-end;
 }
 
-.board-box {
+.portfolio-box {
   background-image: none;
   background-color: #fbdde6; /* light pink */
   width: 1000px;
@@ -320,11 +320,11 @@ main.home-main {
   line-height: 1.8;
 }
 
-.board-box:hover {
+.portfolio-box:hover {
   background-color: #e8a0b8; /* darker pink */
 }
 
-.board-box h2 {
+.portfolio-box h2 {
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-size: 1.8rem;
@@ -333,27 +333,30 @@ main.home-main {
   transition: opacity 0.2s ease;
 }
 
-.board-box:hover h2 {
+.portfolio-box:hover h2 {
   display: none;
 }
 
-.board-box p,
-.board-box ul {
+.portfolio-box p,
+.portfolio-box ul {
   display: none;
   padding: 50px 60px;
   text-align: left;
 }
+.portfolio-box li strong {
+  color: #ffffff;
+}
 
-.board-box:hover p,
-.board-box:hover ul {
+.portfolio-box:hover p,
+.portfolio-box:hover ul {
   display: block;
 }
-.board-box {
+.portfolio-box {
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 2px 8px rgba(192, 96, 122, 0.15);
 }
 
-.board-box:hover {
+.portfolio-box:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(192, 96, 122, 0.3);
 }
@@ -362,24 +365,22 @@ main.home-main {
    ACTIVITIES PAGE
    ========================================= */
 
-/* lace box */
-
-.lace-section {
+.activities-section {
   display: flex;
   padding: 30px 60px;
 }
 
 /* odd sections (1st, 3rd) align left */
-.lace-section:nth-child(odd) {
+.activities-section:nth-child(odd) {
   justify-content: flex-start;
 }
 
 /* even sections (2nd) align right */
-.lace-section:nth-child(even) {
+.activities-section:nth-child(even) {
   justify-content: flex-end;
 }
 
-.lace-box {
+.activities-box {
   background-image: url('images/lace_border.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -391,21 +392,21 @@ main.home-main {
   line-height: 1.8;
 }
 
-.lace-box h2 {
+.activities-box h2 {
   font-family: 'Dancing Script', cursive;
   font-size: 2.4rem;
   color: #ebbbc8;
   margin-bottom: 0px;
 }
 
-.lace-box h3 {
+.activities-box h3 {
   font-family: 'Crafty Girls', cursive;
   font-size: 1.6rem;
   color: #cbe7ce;
   margin-bottom: 0px;
 }
 
-.lace-box p {
+.activities-box p {
   font-family: 'Crafty Girls', cursive;
   font-size: 1rem;
   color: #dabace;
@@ -413,11 +414,11 @@ main.home-main {
 }
 
 @media (max-width: 700px) {
-  .lace-section {
+  .activities-section {
     justify-content: center;
     padding: 20px;
   }
-  .lace-box {
+  .activities-box {
     width: 100%;
   }
 }
@@ -426,7 +427,7 @@ main.home-main {
    QUALIFICATIONS PAGE
    ========================================= */
 
-.qual-row {
+.qualifications-row {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -434,19 +435,19 @@ main.home-main {
   padding: 30px 60px;
 }
 
-.qual-row .clipboard-box {
+.qualifications-row .resume-box {
   flex-shrink: 0;
 }
 
 /* clipboard box (resume) */
 
-.clipboard-section {
+.resume-section {
   display: flex;
   justify-content: center;
   padding: 30px 60px;
 }
 
-.clipboard-box {
+.resume-box {
   background-image: url('images/brownclipboard.png');
   background-color: transparent;
   background-size: 100% 100%;
@@ -460,7 +461,7 @@ main.home-main {
   text-align: center;
 }
 
-.clipboard-box h2 {
+.resume-box h2 {
   font-family: 'Dancing Script', cursive;
   font-size: 2.4rem;
   color: #c0607a;
@@ -601,7 +602,7 @@ main.home-main {
 }
 
 @media (max-width: 900px) {
-  .qual-row {
+  .qualifications-row {
     flex-direction: column;
     align-items: center;
     padding: 20px;
@@ -617,10 +618,10 @@ main.home-main {
 }
 
 @media (max-width: 700px) {
-  .clipboard-section {
+  .resume-section {
     padding: 20px;
   }
-  .clipboard-box {
+  .resume-box {
     width: 100%;
     padding: 22% 12% 12% 12%;
   }
