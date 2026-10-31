@@ -395,11 +395,11 @@ main.home-main {
 }
 
 .activities-box {
-  background-image: url('images/lace_border.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  /* border-image keeps the lace edges a fixed size, so the frame grows with the text */
+  border: 56px solid transparent;
+  border-image: url('images/lace_border.png') 125 fill / 56px round;
   width: 700px;
-  padding: 40px 90px;
+  padding: 16px 36px;
   font-family: 'Nunito', sans-serif;
   font-size: 1rem;
   color: #5a3a4a;
@@ -447,7 +447,9 @@ main.home-main {
   }
   .activities-box {
     width: 100%;
-    padding: 56px 34px 72px;
+    border-width: 40px;
+    border-image-width: 40px;
+    padding: 12px 12px;
   }
   .activities-box h2 {
     font-size: 1.9rem;
