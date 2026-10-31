@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+  <meta name="description" content="Denise Zonoz: Computer Science student at Texas A&amp;M building software with real-world impact.">
+  <title>Portfolio | Denise Zonoz</title>
   <link rel="stylesheet" id="pagestyle" href="bow.css">
   <script src="toggle.js" defer></script>
 </head>
 <body>
 
   <nav>
-    <img class="nav-heart nav-heart-left" src="images/heart_button_ai.png" alt="">
+    <img class="nav-heart nav-heart-left" src="images/heart_button.png" alt="">
     <a href="index.html">Home</a>
     <span>|</span>
     <a href="portfolio.html">Portfolio</a>
@@ -18,9 +19,7 @@
     <a href="activities.html">Activities</a>
     <span>|</span>
     <a href="qualifications.html">Qualifications</a>
-    <span>|</span>
-    <a href="sandbox.html">Sandbox</a>
-    <img class="nav-heart nav-heart-right" src="images/heart_button_ai.png" alt="">
+    <img class="nav-heart nav-heart-right" src="images/heart_button.png" alt="">
   </nav>
 
   <div class="theme-toggle-bar">
@@ -30,50 +29,67 @@
     </div>
   </div>
 
-
   <main>
     <h1 class="name">Portfolio</h1>
 
+    <section class="portfolio-section">
+      <div class="portfolio-box">
+        <h2>Application Intelligence Dashboard Agent</h2>
+        <p class="project-meta">GE Vernova &middot; Summer 2026</p>
+        <ul>
+          <li><strong>What it does:</strong> Brings AWS Resiliency Hub and AWS DevOps data into one conversational interface, so teams can ask about application health and resiliency in plain language instead of digging through separate dashboards.</li>
+          <li><strong>How it's built:</strong> Full-stack agent on GE Vernova's internal AMP platform, with a Python backend and a TypeScript frontend. The split-screen layout pairs a chat panel with a live findings dashboard.</li>
+          <li><strong>Impact:</strong> Built for the CTO team, with expansion underway to Power business teams, cutting down manual research for application owners.</li>
+        </ul>
+      </div>
+    </section>
 
-  <section class="portfolio-section">
-    <div class="portfolio-box">
-      <h2>Application Intelligence Dashboard Agent</h2>
-      <ul>
-        <li><strong>Context:</strong> Built during a 12-week summer internship at GE Vernova</li>
-        <li><strong>What it does:</strong> Integrates AWS Resiliency Hub AWS DevOps data into a conversational interface, letting users query application health and resiliency posture in natural language instead of navigating separate dashboards</li>
-        <li><strong>Backend:</strong> Python</li>
-        <li><strong>Frontend:</strong> TypeScript</li>
-        <li><strong>Impact:</strong> Simplifies access to resiliency and operational insights for engineering teams by consolidating multiple data sources into one chat-driven tool</li>
-      </ul>
-    </div>
-  </section>
+    <section class="portfolio-section">
+      <div class="portfolio-box">
+        <h2>ServiceNow Knowledge Base Migration Agent</h2>
+        <p class="project-meta">GE Vernova &middot; Summer 2026</p>
+        <ul>
+          <li><strong>What it does:</strong> An AI agent that turns scattered, unstructured knowledge bases into ServiceNow-ready documentation.</li>
+          <li><strong>How it's built:</strong> Agentic AI and prompt engineering on GE Vernova's internal AMP platform, developed as a one-week business case.</li>
+          <li><strong>Impact:</strong> Automates what used to be manual work: reformatting and organizing documentation for ServiceNow.</li>
+        </ul>
+      </div>
+    </section>
 
+    <section class="portfolio-section">
+      <div class="portfolio-box">
+        <h2>Boba Shop Point-of-Sale System</h2>
+        <p class="project-meta">CSCE 331 Software Engineering &middot; Fall 2026</p>
+        <ul>
+          <li><strong>What it does:</strong> A point-of-sale and store management system for a boba shop: drink ordering with sweetness, ice, and topping options, plus inventory tracking, restock alerts, employee management, and sales reports.</li>
+          <li><strong>How it's built:</strong> Java and JavaFX on a 10-table PostgreSQL database, built by a 5-person team in Scrum sprints tracked on Jira.</li>
+          <li><strong>My part:</strong> Wrote Python generators that seed the database with 170K+ simulated orders, and built the manager restock report and employee management view.</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://github.com/denisezonoz/boba-shop-pos" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </div>
+    </section>
 
-  <section class="portfolio-section">
-    <div class="portfolio-box">
-      <h2>ServiceNow Knowledge Base Migration Agent</h2>
-      <ul>
-        <li><strong>Context:</strong> Built during a 1-week business case at my summer internship at GE Vernova</li>
-        <li><strong>What it does:</strong> An AI agent on GE Vernova's internal AI platform that automates the migration of unstructured knowledge bases into ServiceNow-ready documentation</li>
-        <li><strong>Made with:</strong> Agentic AI Prompt Engineering</li>
-        <li><strong>Impact:</strong>  Reduces manual effort in reformatting and organizing scattered documentation into a structured, ServiceNow-compatible format</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="portfolio-section">
-    <div class="portfolio-box">
-      <h2>Find It A&M</h2>
-      <ul>
-        <li><strong>Context:</strong> Built as a project through Aggie Coding Club</li>
-        <li><strong>What it does:</strong> Website that uses Google Maps API that helps students locate printers, bike racks, microwaves, and more on campus</li>
-        <li><strong>Tech stack:</strong> I worked on the frontend with HTML, CSS, and JavaScript (React)</li>
-
-      </ul>
-    </div>
-  </section>
+    <section class="portfolio-section">
+      <div class="portfolio-box">
+        <h2>Find It A&amp;M</h2>
+        <p class="project-meta">Aggie Coding Club &middot; 2024&ndash;2025</p>
+        <ul>
+          <li><strong>What it does:</strong> Helps students find printers, bike racks, microwaves, and more around campus using the Google Maps API.</li>
+          <li><strong>My part:</strong> Front-end lead. Designed and built a responsive interface with HTML, CSS, and React.</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://github.com/denisezonoz/Find_it_AM" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </div>
+    </section>
 
   </main>
+
+  <footer class="site-footer">
+    <p><a href="sandbox.html">Pull a bow &#127872;</a> &middot; Some illustrations made with AI &middot; &copy; 2026 Denise Zonoz</p>
+  </footer>
 
 </body>
 </html>

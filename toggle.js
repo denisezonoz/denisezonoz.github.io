@@ -1,73 +1,46 @@
-var num = 0; // global variable
+// Switches between the Bow and Flower themes and remembers the choice.
 
-function button1() {
-    num++;
-    document.getElementById("output").innerHTML = "Press x " + num;
-}
+var STORAGE_KEY = "stylesheet";
 
-function toggleStyleSheet(){
-    // Task 1
-    // Steps
-    // 1 (a) Get style element by ID (hint: getElementById)
+// Apply the saved theme as soon as the page loads
+window.onload = function () {
     var styleLink = document.getElementById("pagestyle");
+    var savedSheet = null;
 
-    // 1 (b) Check the current stylesheet file name. (hint: element.getAttribute)
-    var currentSheet = styleLink.getAttribute("href");
+    try {
+        savedSheet = localStorage.getItem(STORAGE_KEY);
+    } catch (e) {
+        // Storage can be blocked (e.g. private browsing); fall back to the default theme
+    }
 
-    // 1 (c) Determine new stylesheet file name
-    var newSheet = (currentSheet === "bow.css") ? "flowers.css" : "bow.css";
-
-    // 1 (d) replace stylesheet with new stylesheet (hint: element.setAttribute)
-    styleLink.setAttribute("href", newSheet);
-
-    // TASK 2
-    // 2 (d) For persistence when page is refreshed. save new stylesheet name to localStorage
-    // hint: localStorage.setItem(name, value)
-    localStorage.setItem("stylesheet", newSheet);
-}
-
-
-window.onload = function(){
-    // TASK 2
-    // TODO: Make the last div color persist even when someone refreshes the page.
-
-    // Steps
-    // 2 (a) get stylesheet name from local storage hint: localStorage.getItem(name)
-    var savedSheet = localStorage.getItem("stylesheet");
-
-    // 2 (b) get html style element by ID
-    var styleLink = document.getElementById("pagestyle");
-
-    // 2 (c) replace href attribute of html element.
     if (savedSheet) {
         styleLink.setAttribute("href", savedSheet);
     }
 
-    // Highlight the correct button in the Bow / Flower toggle on load
     updateActiveButtons(styleLink.getAttribute("href"));
-}
+};
 
-// Sets the theme directly from the Bow / Flower pill buttons
+// Called by the Bow / Flower buttons
 function setTheme(theme) {
     var newSheet = (theme === "flower") ? "flowers.css" : "bow.css";
-    var styleLink = document.getElementById("pagestyle");
-    styleLink.setAttribute("href", newSheet);
-    localStorage.setItem("stylesheet", newSheet);
+    document.getElementById("pagestyle").setAttribute("href", newSheet);
+
+    try {
+        localStorage.setItem(STORAGE_KEY, newSheet);
+    } catch (e) {
+        // Theme still changes for this page even if it can't be saved
+    }
+
     updateActiveButtons(newSheet);
 }
 
-// Adds/removes the "active" class so the current theme's button stays highlighted
+// Highlights the button for the current theme
 function updateActiveButtons(sheet) {
     var bowBtn = document.querySelector(".btn-bow");
     var flowerBtn = document.querySelector(".btn-flower");
     if (!bowBtn || !flowerBtn) return;
 
-    if (sheet === "flowers.css") {
-        flowerBtn.classList.add("active");
-        bowBtn.classList.remove("active");
-    } else {
-        bowBtn.classList.add("active");
-        flowerBtn.classList.remove("active");
-    }
+    var isFlower = (sheet === "flowers.css");
+    flowerBtn.classList.toggle("active", isFlower);
+    bowBtn.classList.toggle("active", !isFlower);
 }
-

@@ -286,79 +286,93 @@ main.home-main {
 /* board for portfolio */
 .portfolio-section {
   display: flex;
-  padding: 30px 60px;
+  padding: 24px 60px;
 }
 
-/* even sections align left */
-.portfolio-section:nth-child(even) {
+/* alternate cards left and right */
+.portfolio-section:nth-of-type(odd) {
   justify-content: flex-start;
 }
 
-/* odd sections align right */
-.portfolio-section:nth-child(odd) {
+.portfolio-section:nth-of-type(even) {
   justify-content: flex-end;
 }
 
 .portfolio-box {
-  background-image: none;
   background-color: #fbdde6; /* light pink */
-  width: 1000px;
-  min-height: 400px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
+  width: 100%;
+  max-width: 900px;
+  padding: 40px 56px;
+  text-align: left;
   border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  font-family: 'Crafty Girls', cursive;
+  border-left: 6px solid #e8a0b8;
+  box-shadow: 0 2px 8px rgba(192, 96, 122, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: 'Nunito', sans-serif;
   font-size: 1rem;
   color: #5a3a4a;
-  line-height: 1.8;
-}
-
-.portfolio-box:hover {
-  background-color: #e8a0b8; /* darker pink */
-}
-
-.portfolio-box h2 {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 1.8rem;
-  color: #8b3a52;
-  padding: 0px 50px;
-  transition: opacity 0.2s ease;
-}
-
-.portfolio-box:hover h2 {
-  display: none;
-}
-
-.portfolio-box p,
-.portfolio-box ul {
-  display: none;
-  padding: 50px 60px;
-  text-align: left;
-}
-.portfolio-box li strong {
-  color: #ffffff;
-}
-
-.portfolio-box:hover p,
-.portfolio-box:hover ul {
-  display: block;
-}
-.portfolio-box {
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 2px 8px rgba(192, 96, 122, 0.15);
+  line-height: 1.7;
 }
 
 .portfolio-box:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(192, 96, 122, 0.3);
+}
+
+.portfolio-box h2 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.7rem;
+  color: #8b3a52;
+}
+
+.project-meta {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #b0607a;
+  margin: 4px 0 18px;
+}
+
+.portfolio-box ul {
+  list-style: none;
+}
+
+.portfolio-box li {
+  margin-bottom: 10px;
+}
+
+.portfolio-box li strong {
+  color: #8b3a52;
+}
+
+.project-links {
+  margin-top: 18px;
+}
+
+.project-links a {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #c0607a;
+  padding: 8px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.project-links a:hover {
+  background-color: #8b3a52;
+}
+
+@media (max-width: 700px) {
+  .portfolio-section {
+    padding: 14px 16px;
+  }
+  .portfolio-box {
+    padding: 28px 24px;
+  }
 }
 
 /* =========================================
@@ -395,22 +409,35 @@ main.home-main {
 .activities-box h2 {
   font-family: 'Dancing Script', cursive;
   font-size: 2.4rem;
-  color: #ebbbc8;
+  color: #c0607a;
   margin-bottom: 0px;
 }
 
 .activities-box h3 {
   font-family: 'Crafty Girls', cursive;
-  font-size: 1.6rem;
-  color: #cbe7ce;
-  margin-bottom: 0px;
+  font-size: 1.4rem;
+  color: #5e8f63;
+  margin: 18px 0 0;
 }
 
 .activities-box p {
-  font-family: 'Crafty Girls', cursive;
+  font-family: 'Nunito', sans-serif;
   font-size: 1rem;
-  color: #dabace;
-  margin-bottom: 50px;
+  color: #5a3a4a;
+  margin-bottom: 24px;
+}
+
+.activities-box p.role-dates {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #b0607a;
+  margin-bottom: 8px;
+}
+
+.activities-box a {
+  color: #c0607a;
+  font-weight: 600;
 }
 
 @media (max-width: 700px) {
@@ -420,6 +447,11 @@ main.home-main {
   }
   .activities-box {
     width: 100%;
+    padding: 56px 34px 72px;
+  }
+  .activities-box h2 {
+    font-size: 1.9rem;
+    line-height: 1.2;
   }
 }
 
@@ -563,6 +595,15 @@ main.home-main {
   box-shadow: 0 4px 10px rgba(90, 58, 74, 0.2);
 }
 
+/* Languages has the longest list, so it gets tighter spacing */
+.strip-1 ul {
+  line-height: 1.45;
+}
+
+.strip-1 {
+  padding-bottom: 120px;
+}
+
 .strip-1 {
   margin-top: 35px;
   transform: rotate(-6deg);
@@ -624,5 +665,39 @@ main.home-main {
   .resume-box {
     width: 100%;
     padding: 22% 12% 12% 12%;
+  }
+}
+/* =========================================
+   FOOTER + SMALL SCREENS — shared by every page
+   ========================================= */
+
+.site-footer {
+  margin-top: 60px;
+  padding: 24px 16px 32px;
+  border-top: 1px solid rgba(230, 170, 190, 0.5);
+  text-align: center;
+  font-size: 0.85rem;
+  color: #7a6a70;
+}
+
+.site-footer a {
+  color: #c0607a;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .nav-heart {
+    display: none;
+  }
+  nav span {
+    margin: 0 2px;
+  }
+  nav a {
+    padding: 4px 3px;
   }
 }

@@ -339,14 +339,25 @@ main.home-main {
 .activities-box h3 {
   font-family: 'Caveat', cursive;
   font-size: 1.6rem;
-  color: #6b9e70;
-  margin-bottom: 0px;
+  color: #4f8054;
+  margin: 18px 0 0;
 }
 .activities-box p {
-  font-family: 'Caveat', cursive;
-  font-size: 1.3rem;
-  color: #bd72a6;
-  margin-bottom: 50px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  color: #3d5a3e;
+  margin-bottom: 24px;
+}
+.activities-box p.role-dates {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #a0558a;
+  margin-bottom: 8px;
+}
+.activities-box a {
+  color: #a0558a;
+  font-weight: 600;
 }
 
 /* clipboard box */
@@ -472,6 +483,11 @@ main.home-main {
   }
   .activities-box {
     width: 100%;
+    padding: 84px 40px 90px;
+  }
+  .activities-box h2 {
+    font-size: 1.9rem;
+    line-height: 1.2;
   }
   .resume-section {
     padding: 20px;
@@ -485,43 +501,35 @@ main.home-main {
 /* board for portfolio */
 .portfolio-section {
   display: flex;
-  padding: 30px 60px;
+  padding: 24px 60px;
 }
 
-/* odd sections align left */
-.portfolio-section:nth-child(odd) {
+/* alternate cards left and right */
+.portfolio-section:nth-of-type(odd) {
   justify-content: flex-start;
 }
 
-/* even sections align right */
-.portfolio-section:nth-child(even) {
+.portfolio-section:nth-of-type(even) {
   justify-content: flex-end;
 }
 
 .portfolio-box {
-  background-image: none;
-  background-color: #dcedc8; /* light green */
-  width: 1000px;
-  min-height: 400px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
+  background-color: #eef6e6; /* light green */
+  width: 100%;
+  max-width: 900px;
+  padding: 40px 56px;
+  text-align: left;
   border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  border-left: 6px solid #a5d6a7;
   box-shadow: 0 2px 8px rgba(91, 138, 94, 0.15);
-
-  font-family: 'Caveat', cursive;
-  font-size: 1.4rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
   color: #3d5a3e;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 .portfolio-box:hover {
-  background-color: #a5d6a7; /* darker green */
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(91, 138, 94, 0.3);
 }
@@ -529,26 +537,20 @@ main.home-main {
 .portfolio-box h2 {
   font-family: 'Lora', serif;
   font-style: italic;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   color: #3f6b42;
-  padding: 0px 50px;
-  transition: opacity 0.2s ease;
 }
 
-.portfolio-box:hover h2 {
-  display: none;
+.project-meta {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #b0608f;
+  margin: 4px 0 18px;
 }
 
-.portfolio-box p,
 .portfolio-box ul {
-  display: none;
-  padding: 50px 60px;
-  text-align: left;
-}
-
-.portfolio-box:hover p,
-.portfolio-box:hover ul {
-  display: block;
+  list-style: none;
 }
 
 .portfolio-box li {
@@ -556,9 +558,37 @@ main.home-main {
 }
 
 .portfolio-box li strong {
-  color: #ffffff;
+  color: #3f6b42;
 }
 
+.project-links {
+  margin-top: 18px;
+}
+
+.project-links a {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #5b8a5e;
+  padding: 8px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.project-links a:hover {
+  background-color: #3f6b42;
+}
+
+@media (max-width: 700px) {
+  .portfolio-section {
+    padding: 14px 16px;
+  }
+  .portfolio-box {
+    padding: 28px 24px;
+  }
+}
 
 /* skills */
 .skills-strips {
@@ -590,6 +620,15 @@ main.home-main {
   padding: 25px 25px 80px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(90, 58, 74, 0.2);
+}
+
+/* Languages has the longest list, so it gets tighter spacing */
+.strip-1 ul {
+  line-height: 1.45;
+}
+
+.strip-1 {
+  padding-bottom: 120px;
 }
 
 .strip-1 {
@@ -653,4 +692,38 @@ main.home-main {
 
 .nav-heart-right {
   right: 24px;
+}
+/* =========================================
+   FOOTER + SMALL SCREENS — shared by every page
+   ========================================= */
+
+.site-footer {
+  margin-top: 60px;
+  padding: 24px 16px 32px;
+  border-top: 1px solid rgba(165, 214, 167, 0.6);
+  text-align: center;
+  font-size: 0.85rem;
+  color: #7a6a70;
+}
+
+.site-footer a {
+  color: #5b8a5e;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .nav-heart {
+    display: none;
+  }
+  nav span {
+    margin: 0 2px;
+  }
+  nav a {
+    padding: 4px 3px;
+  }
 }
